@@ -57,7 +57,7 @@ export function PortfolioSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-neon-glow">
             Our <GradientText>Portfolio</GradientText>
           </h2>
-          <p className="text-white text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
+          <p className="text-black text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
             Showcase of our latest projects and client success stories
           </p>
         </div>
@@ -101,7 +101,7 @@ export function PortfolioSection() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+                <h3 className="text-xl font-bold text-black mb-2 group-hover:text-cyan-600 transition-colors">{project.title}</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((t) => (
                     <span

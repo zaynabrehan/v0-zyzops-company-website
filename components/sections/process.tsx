@@ -36,7 +36,7 @@ export function ProcessSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Our <GradientText>Process</GradientText>
           </h2>
-          <p className="text-white text-lg max-w-2xl mx-auto font-light">
+          <p className="text-black text-lg max-w-2xl mx-auto font-light">
             A streamlined approach to delivering exceptional results
           </p>
         </div>
@@ -59,11 +59,11 @@ export function ProcessSection() {
               {/* Step Number */}
               <div className="text-center mb-4">
                 <p className="text-4xl font-bold text-purple-400 mb-2">{step.number}</p>
-                <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                <h3 className="text-xl font-bold text-black">{step.title}</h3>
               </div>
 
               {/* Description */}
-              <p className="text-white text-center text-sm leading-relaxed font-light">
+              <p className="text-black text-center text-sm leading-relaxed font-light">
                 {step.description}
               </p>
             </div>

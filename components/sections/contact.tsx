@@ -40,7 +40,7 @@ export function ContactSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Get in <GradientText>Touch</GradientText>
           </h2>
-          <p className="text-white text-lg font-light">
+          <p className="text-black text-lg font-light">
             Ready to start your next project? Let&apos;s talk!
           </p>
         </div>
@@ -53,8 +53,8 @@ export function ContactSection() {
                 <Mail size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-white mb-1">Email</h3>
-                <p className="text-white font-light">hello@zyzops.com</p>
+                <h3 className="font-semibold text-black mb-1">Email</h3>
+                <p className="text-black font-light">hello@zyzops.com</p>
               </div>
             </div>
 
@@ -63,8 +63,8 @@ export function ContactSection() {
                 <MessageSquare size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-white mb-1">WhatsApp</h3>
-                <p className="text-white font-light">+1 (555) 123-4567</p>
+                <h3 className="font-semibold text-black mb-1">WhatsApp</h3>
+                <p className="text-black font-light">+1 (555) 123-4567</p>
               </div>
             </div>
 
@@ -73,8 +73,8 @@ export function ContactSection() {
                 <MapPin size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-white mb-1">Location</h3>
-                <p className="text-white font-light">123 Business Street, Tech City, TC 12345</p>
+                <h3 className="font-semibold text-black mb-1">Location</h3>
+                <p className="text-black font-light">123 Business Street, Tech City, TC 12345</p>
               </div>
             </div>
 
@@ -96,7 +96,7 @@ export function ContactSection() {
             <div className="space-y-6">
               {/* Name Input */}
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Your Name
                 </label>
                 <input
@@ -112,7 +112,7 @@ export function ContactSection() {
 
               {/* Email Input */}
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Email Address
                 </label>
                 <input
@@ -128,7 +128,7 @@ export function ContactSection() {
 
               {/* Service Select */}
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Service Interest
                 </label>
                 <select
@@ -148,7 +148,7 @@ export function ContactSection() {
 
               {/* Message Textarea */}
               <div>
-                <label className="block text-sm font-medium text-white mb-2">
+                <label className="block text-sm font-medium text-black mb-2">
                   Message
                 </label>
                 <textarea

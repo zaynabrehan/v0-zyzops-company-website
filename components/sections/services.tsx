@@ -43,7 +43,7 @@ export function ServicesSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-neon-glow">
             Our <GradientText>Services</GradientText>
           </h2>
-          <p className="text-white text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
+          <p className="text-black text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
             Comprehensive digital solutions tailored to your business needs
           </p>
         </div>
@@ -56,8 +56,8 @@ export function ServicesSection() {
               className="group hover:scale-105 hover-glow-purple animate-scale-in border-purple-500/30"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">{service.title}</h3>
-              <p className="text-white leading-relaxed group-hover:text-cyan-100 transition-colors font-light">{service.description}</p>
+              <h3 className="text-xl font-bold text-black mb-3 group-hover:text-cyan-600 transition-colors">{service.title}</h3>
+              <p className="text-black leading-relaxed group-hover:text-cyan-700 transition-colors font-light">{service.description}</p>
             </GlassmorphismCard>
           ))}
         </div>
