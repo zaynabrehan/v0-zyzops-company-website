@@ -25,7 +25,7 @@ export function TestimonialsSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Client <GradientText>Testimonials</GradientText>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-white text-lg max-w-2xl mx-auto font-light">
             What our clients say about working with us
           </p>
         </div>
@@ -45,14 +45,14 @@ export function TestimonialsSection() {
               </div>
 
               {/* Message */}
-              <p className="text-gray-300 mb-6 leading-relaxed italic">
+              <p className="text-white mb-6 leading-relaxed italic font-light">
                 &quot;{testimonial.message}&quot;
               </p>
 
               {/* Author */}
               <div className="border-t border-purple-500/20 pt-4">
                 <p className="font-semibold text-white">{testimonial.name}</p>
-                <p className="text-sm text-gray-400">{testimonial.role}</p>
+                <p className="text-sm text-white font-light">{testimonial.role}</p>
               </div>
             </GlassmorphismCard>
           ))}

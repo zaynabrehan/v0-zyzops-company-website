@@ -57,7 +57,7 @@ export function PortfolioSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-neon-glow">
             Our <GradientText>Portfolio</GradientText>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <p className="text-white text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
             Showcase of our latest projects and client success stories
           </p>
         </div>
@@ -70,8 +70,8 @@ export function PortfolioSection() {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-2 rounded-full transition-all duration-300 hover:scale-110 ${
                 activeCategory === cat
-                  ? 'bg-gradient-to-r from-purple-500 to-cyan-400 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] animate-glow'
-                  : 'glass text-gray-300 hover:text-cyan-400 hover-glow-cyan'
+                  ? 'bg-gradient-to-r from-purple-500 to-cyan-400 text-black shadow-[0_0_20px_rgba(168,85,247,0.4)] animate-glow font-semibold'
+                  : 'glass text-black hover:text-cyan-400 hover-glow-cyan font-semibold'
               }`}
               style={{ animation: `scale-in 0.6s ease-out ${0.3 + index * 0.1}s backwards` }}
             >

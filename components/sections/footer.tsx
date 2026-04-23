@@ -38,7 +38,7 @@ export function Footer() {
             <div className="text-2xl font-bold mb-4">
               <span className="gradient-text">ZYZOPS</span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.
             </p>
             <div className="flex gap-4 mt-6">
@@ -66,7 +66,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors text-sm"
+                    className="text-white hover:text-cyan-400 transition-colors text-sm font-light"
                   >
                     {link.label}
                   </a>
@@ -83,7 +83,7 @@ export function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors text-sm"
+                    className="text-white hover:text-cyan-400 transition-colors text-sm font-light"
                   >
                     {link.label}
                   </a>
@@ -97,20 +97,20 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-6">Contact</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <p className="text-gray-400">Email</p>
+                <p className="text-white font-light">Email</p>
                 <a href="mailto:hello@zyzops.com" className="text-cyan-400 hover:text-cyan-300">
                   hello@zyzops.com
                 </a>
               </li>
               <li>
-                <p className="text-gray-400">WhatsApp</p>
+                <p className="text-white font-light">WhatsApp</p>
                 <a href="https://wa.me/15551234567" className="text-cyan-400 hover:text-cyan-300">
                   +1 (555) 123-4567
                 </a>
               </li>
               <li>
-                <p className="text-gray-400">Location</p>
-                <p className="text-gray-400">123 Business Street, Tech City, TC 12345</p>
+                <p className="text-white font-light">Location</p>
+                <p className="text-white font-light">123 Business Street, Tech City, TC 12345</p>
               </li>
             </ul>
           </div>
@@ -120,13 +120,13 @@ export function Footer() {
         <div className="border-t border-purple-500/20 mb-8" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white font-light">
           <p>&copy; {currentYear} Zyzops. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-cyan-400 transition-colors">
+            <a href="#" className="text-white hover:text-cyan-400 transition-colors font-light">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-cyan-400 transition-colors">
+            <a href="#" className="text-white hover:text-cyan-400 transition-colors font-light">
               Terms of Service
             </a>
           </div>

@@ -23,7 +23,7 @@ export function HeroSection() {
               Transform Your Business with <GradientText>Digital Innovation</GradientText>
             </h1>
 
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-white text-lg mb-8 leading-relaxed animate-slide-up font-light" style={{ animationDelay: '0.2s' }}>
               We deliver cutting-edge digital solutions including web development, cybersecurity, graphic design, and AI-powered services to help your business thrive in the digital age.
             </p>
 
@@ -41,7 +41,7 @@ export function HeroSection() {
               {stats.map((stat, index) => (
                 <div key={stat.label} className="group" style={{ animation: `scale-in 0.6s ease-out ${0.5 + index * 0.1}s backwards` }}>
                   <p className="text-2xl font-bold text-cyan-400 group-hover:text-purple-400 transition-colors">{stat.number}</p>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{stat.label}</p>
+                  <p className="text-sm text-white group-hover:text-cyan-300 transition-colors">{stat.label}</p>
                 </div>
               ))}
             </div>

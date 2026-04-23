@@ -34,7 +34,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="text-2xl font-bold animate-fade-in-up">
+          <div className="text-2xl font-bold animate-fade-in-up text-black">
             <span className="gradient-text animate-neon-glow">ZYZOPS</span>
           </div>
 
@@ -44,7 +44,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-white hover:text-cyan-400 transition-all duration-300 hover:glow-cyan"
+                className="text-black hover:text-cyan-400 transition-all duration-300 hover:glow-cyan font-semibold"
                 style={{
                   animation: `fade-in-up 0.6s ease-out ${index * 0.1}s backwards`,
                 }}
@@ -62,7 +62,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white"
+            className="md:hidden p-2 text-black hover:text-cyan-400 font-semibold"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -75,7 +75,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-2 text-gray-300 hover:text-cyan-400 transition-colors"
+                className="block px-4 py-2 text-black hover:text-cyan-400 transition-colors font-semibold"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
