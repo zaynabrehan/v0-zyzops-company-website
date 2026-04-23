@@ -34,17 +34,20 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="text-2xl font-bold">
-            <span className="gradient-text">ZYZOPS</span>
+          <div className="text-2xl font-bold animate-fade-in-up">
+            <span className="gradient-text animate-neon-glow">ZYZOPS</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-cyan-400 transition-colors"
+                className="text-white hover:text-cyan-400 transition-all duration-300 hover:glow-cyan"
+                style={{
+                  animation: `fade-in-up 0.6s ease-out ${index * 0.1}s backwards`,
+                }}
               >
                 {link.label}
               </a>

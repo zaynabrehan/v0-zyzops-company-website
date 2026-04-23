@@ -13,11 +13,11 @@ export function GlowButton({
   variant = 'primary',
   className = ''
 }: GlowButtonProps) {
-  const baseClasses = 'px-6 py-3 rounded-lg font-semibold transition-all duration-300';
+  const baseClasses = 'px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 active:scale-95';
   
   const variantClasses = {
-    primary: 'bg-gradient-to-r from-purple-500 to-cyan-400 text-white hover:shadow-lg glow-purple',
-    secondary: 'border border-purple-500 text-purple-400 hover:bg-purple-500/10 hover:shadow-lg'
+    primary: 'bg-gradient-to-r from-purple-500 via-purple-600 to-cyan-400 text-white hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] glow-multi hover:-translate-y-1 animate-gradient-shift',
+    secondary: 'border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:border-purple-400 hover:text-purple-400 hover:-translate-y-1'
   };
 
   return (
