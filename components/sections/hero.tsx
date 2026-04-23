@@ -10,7 +10,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-36 px-4">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

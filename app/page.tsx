@@ -1,5 +1,4 @@
 import { ParticleBackground } from '@/components/particle-background';
-import { Banner } from '@/components/sections/banner';
 import { Navbar } from '@/components/sections/navbar';
 import { HeroSection } from '@/components/sections/hero';
 import { ServicesSection } from '@/components/sections/services';
@@ -15,7 +14,6 @@ export default function Home() {
   return (
     <main className="w-full overflow-hidden">
       <ParticleBackground />
-      <Banner />
       <Navbar />
       <HeroSection />
       <ServicesSection />
