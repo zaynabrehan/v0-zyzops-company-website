@@ -110,7 +110,7 @@ export default function AdminDashboard() {
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-4xl font-bold">
-              <span className="gradient-text">ZYZOPS</span> Admin
+              <span className="gradient-text">Techvix.org</span> Admin
             </h1>
             <p className="text-gray-300 mt-2">Manage contact messages</p>
           </div>

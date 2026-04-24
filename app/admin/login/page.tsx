@@ -46,7 +46,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-2">
-            <span className="gradient-text">ZYZOPS</span>
+            <span className="gradient-text">Techvix.org</span>
           </h1>
           <h2 className="text-2xl font-bold text-white mb-2">Admin Login</h2>
           <p className="text-gray-300">Sign in to manage messages</p>
@@ -70,7 +70,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
-                placeholder="admin@zyzops.com"
+                placeholder="admin@techvix.org"
               />
             </div>
 
@@ -98,7 +98,7 @@ export default function AdminLogin() {
           </form>
 
           <p className="text-center text-sm text-gray-400 mt-6">
-            Default credentials: admin@zyzops.com / admin123
+            Default credentials: admin@techvix.org / admin123
           </p>
         </div>
       </div>

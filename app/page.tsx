@@ -2,7 +2,6 @@ import { ParticleBackground } from '@/components/particle-background';
 import { Navbar } from '@/components/sections/navbar';
 import { HeroSection } from '@/components/sections/hero';
 import { ServicesSection } from '@/components/sections/services';
-import { PortfolioSection } from '@/components/sections/portfolio';
 import { WhyUsSection } from '@/components/sections/why-us';
 import { ProcessSection } from '@/components/sections/process';
 import { TestimonialsSection } from '@/components/sections/testimonials';
@@ -17,7 +16,6 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ServicesSection />
-      <PortfolioSection />
       <WhyUsSection />
       <ProcessSection />
       <TestimonialsSection />

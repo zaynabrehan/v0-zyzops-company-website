@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { LogIn } from 'lucide-react';
-import { GradientText } from '@/components/gradient-text';
+import { ParticleBackground } from '@/components/particle-background';
 
 export default function SignInPage() {
   const router = useRouter();
@@ -43,15 +44,16 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a1428] via-[#1a3654] to-[#0a1428] flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
-        <div className="bg-[#162543] border border-[#264563] rounded-2xl p-8 backdrop-blur-sm shadow-2xl">
+    <div className="min-h-screen flex items-center justify-center px-4 relative">
+      <ParticleBackground />
+      <div className="w-full max-w-md relative z-10">
+        <div className="glass border border-purple-500/30 rounded-2xl p-8 backdrop-blur-xl shadow-2xl">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <LogIn size={32} className="text-cyan-400" />
+              <LogIn size={32} className="text-purple-400" />
               <h1 className="text-3xl font-bold text-white">
-                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-300 bg-clip-text text-transparent">
                   Admin
                 </span>
               </h1>
@@ -78,7 +80,7 @@ export default function SignInPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-[#1a3654] border border-[#264563] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
                 placeholder="your@email.com"
               />
             </div>
@@ -93,39 +95,39 @@ export default function SignInPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-[#1a3654] border border-[#264563] rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
-                placeholder="••••••••"
+                className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                placeholder="Enter your password"
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button - Cyan to purple gradient */}
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-purple-500 to-cyan-400 text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 bg-[length:200%_100%] animate-gradient-shift text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {isLoading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
           {/* Demo Credentials */}
-          <div className="mt-8 pt-8 border-t border-[#264563]">
+          <div className="mt-8 pt-8 border-t border-purple-500/20">
             <p className="text-xs text-gray-400 mb-4">Demo Credentials:</p>
             <div className="space-y-2 text-xs text-gray-300">
               <p><span className="text-cyan-400">Email:</span> zaynabrehann@gmail.com</p>
-              <p><span className="text-cyan-400">Email:</span> admin@zyzops.com</p>
+              <p><span className="text-cyan-400">Email:</span> admin@techvix.org</p>
               <p><span className="text-cyan-400">Password:</span> admin123</p>
             </div>
           </div>
 
           {/* Back to Home */}
           <div className="mt-6 text-center">
-            <a
+            <Link
               href="/"
-              className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+              className="text-sm text-cyan-400 hover:text-purple-400 transition-colors"
             >
-              ← Back to Home
-            </a>
+              &#8592; Back to Home
+            </Link>
           </div>
         </div>
       </div>

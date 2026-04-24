@@ -6,18 +6,18 @@ export function AboutSection() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <GradientText>Zyzops</GradientText>
+            About <GradientText>Techvix.org</GradientText>
           </h2>
           <p className="text-white text-lg font-light">
             Delivering Digital Excellence Since Day One
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in-up">
             <p className="text-white leading-relaxed mb-6 font-light">
-              Zyzops is a forward-thinking digital solutions company dedicated to transforming businesses through innovative technology. Our team of skilled professionals brings years of experience in web development, cybersecurity, design, and artificial intelligence.
+              Techvix.org is a forward-thinking digital solutions company dedicated to transforming businesses through innovative technology. Our team of skilled professionals brings years of experience in web development, cybersecurity, design, and artificial intelligence.
             </p>
 
             <p className="text-white leading-relaxed mb-6 font-light">
@@ -26,14 +26,14 @@ export function AboutSection() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-semibold text-cyan-400 mb-2">Our Mission</h3>
+                <h3 className="font-semibold text-purple-400 mb-2">Our Mission</h3>
                 <p className="text-white font-light">
                   To empower businesses by delivering cutting-edge digital solutions that drive growth and innovation.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-semibold text-cyan-400 mb-2">Our Vision</h3>
+                <h3 className="font-semibold text-purple-400 mb-2">Our Vision</h3>
                 <p className="text-white font-light">
                   To be the trusted partner for businesses seeking digital transformation and technological excellence.
                 </p>
@@ -43,8 +43,8 @@ export function AboutSection() {
 
           {/* Right Visual */}
           <div className="animate-fade-in-down">
-            <div className="glass rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">Why We&apos;re Different</h3>
+            <div className="glass rounded-xl p-6 md:p-8 border-purple-500/30">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Why We&apos;re Different</h3>
               <ul className="space-y-4">
                 {[
                   'Client-centric approach with personalized solutions',
@@ -55,7 +55,7 @@ export function AboutSection() {
                   'Competitive pricing without compromising quality',
                 ].map((item, index) => (
                   <li key={index} className="flex gap-3">
-                    <span className="text-cyan-400 font-bold">✓</span>
+                    <span className="text-cyan-400 font-bold flex-shrink-0">&#10003;</span>
                     <span className="text-white font-light">{item}</span>
                   </li>
                 ))}

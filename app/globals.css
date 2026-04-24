@@ -41,40 +41,40 @@
 }
 
 .dark {
-  /* Zyzops dark blue theme: Dark blue background with white and grey text */
-  --background: #0a1428;
+  /* Techvix.org theme: Dark background with cyan and purple accents */
+  --background: #0a1520;
   --foreground: #e8e8e8;
-  --card: #162543;
+  --card: #0f1f2e;
   --card-foreground: #ffffff;
-  --popover: #162543;
+  --popover: #0f1f2e;
   --popover-foreground: #ffffff;
-  --primary: #a855f7;
+  --primary: #8b5cf6;
   --primary-foreground: #ffffff;
   --secondary: #06b6d4;
   --secondary-foreground: #ffffff;
-  --muted: #264563;
+  --muted: #1a3a4a;
   --muted-foreground: #a0a0a0;
-  --accent: #0ea5e9;
+  --accent: #a855f7;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #264563;
-  --input: #1a3654;
-  --ring: #a855f7;
-  --chart-1: #a855f7;
+  --border: #1a3a4a;
+  --input: #0f2535;
+  --ring: #8b5cf6;
+  --chart-1: #8b5cf6;
   --chart-2: #06b6d4;
-  --chart-3: #ef4444;
-  --chart-4: #0ea5e9;
-  --chart-5: #d946ef;
+  --chart-3: #a855f7;
+  --chart-4: #38bdf8;
+  --chart-5: #c084fc;
   --radius: 0.625rem;
-  --sidebar: #162543;
+  --sidebar: #0f1f2e;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #a855f7;
+  --sidebar-primary: #8b5cf6;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #06b6d4;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #264563;
-  --sidebar-ring: #a855f7;
+  --sidebar-border: #1a3a4a;
+  --sidebar-ring: #8b5cf6;
 }
 
 @theme inline {
@@ -135,10 +135,10 @@
 
   @keyframes glow {
     0%, 100% { 
-      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.2);
     }
     50% { 
-      box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 80px rgba(6, 182, 212, 0.4);
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.8), 0 0 80px rgba(6, 182, 212, 0.4);
     }
   }
 
@@ -229,10 +229,10 @@
 
   @keyframes neon-glow {
     0%, 100% { 
-      text-shadow: 0 0 10px rgba(168, 85, 247, 0.8), 0 0 20px rgba(168, 85, 247, 0.4);
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 0 20px rgba(139, 92, 246, 0.4);
     }
     50% { 
-      text-shadow: 0 0 20px rgba(168, 85, 247, 1), 0 0 30px rgba(6, 182, 212, 0.6);
+      text-shadow: 0 0 20px rgba(139, 92, 246, 1), 0 0 30px rgba(6, 182, 212, 0.6);
     }
   }
 
@@ -313,42 +313,42 @@
   }
 
   .glass-dark {
-    @apply bg-black/60 backdrop-blur-lg border border-cyan-400/20;
+    @apply bg-black/60 backdrop-blur-lg border border-purple-500/20;
   }
 
   .glass-accent {
-    @apply bg-black/50 backdrop-blur-md border border-purple-500/40 shadow-lg shadow-purple-500/10;
+    @apply bg-black/50 backdrop-blur-md border border-purple-500/30 shadow-lg shadow-purple-500/10;
   }
 
-  /* Gradient text */
+  /* Gradient text - Cyan to purple */
   .gradient-text {
-    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-300 bg-clip-text text-transparent;
   }
 
   .gradient-text-alt {
-    @apply bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent;
   }
 
   /* Glow effects */
   .glow-purple {
-    @apply shadow-[0_0_30px_rgba(168,85,247,0.6)];
+    @apply shadow-[0_0_30px_rgba(139,92,246,0.6)];
   }
 
   .glow-cyan {
-    @apply shadow-[0_0_30px_rgba(6,182,212,0.6)];
+    @apply shadow-[0_0_30px_rgba(34,211,238,0.6)];
   }
 
   .glow-pink {
-    @apply shadow-[0_0_30px_rgba(236,72,153,0.5)];
+    @apply shadow-[0_0_30px_rgba(219,39,119,0.4)];
   }
 
   .glow-multi {
-    @apply shadow-[0_0_40px_rgba(168,85,247,0.4),0_0_60px_rgba(6,182,212,0.3)];
+    @apply shadow-[0_0_40px_rgba(139,92,246,0.4),0_0_60px_rgba(6,182,212,0.3)];
   }
 
   /* Hover effects */
   .hover-glow-purple {
-    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:border-purple-400;
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:border-purple-500;
   }
 
   .hover-glow-cyan {
@@ -358,7 +358,7 @@
   /* Border animations */
   .border-animate {
     @apply border-transparent border-2;
-    background: linear-gradient(#000000, #000000) padding-box, linear-gradient(90deg, #a855f7, #06b6d4) border-box;
+    background: linear-gradient(#000000, #000000) padding-box, linear-gradient(90deg, #8b5cf6, #06b6d4) border-box;
     animation: gradient-shift 3s ease infinite;
   }
 }

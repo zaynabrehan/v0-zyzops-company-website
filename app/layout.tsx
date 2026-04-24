@@ -7,18 +7,18 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Zyzops - Digital Solutions & Web Development',
+  title: 'Techvix.org - Digital Solutions & Web Development',
   description: 'Professional digital solutions including web development, cybersecurity, graphic design, and AI services. Transform your business with cutting-edge technology.',
   generator: 'v0.app',
-  metadataBase: new URL('https://zyzops.com'),
+  metadataBase: new URL('https://techvix.org'),
   openGraph: {
-    title: 'Zyzops - Digital Solutions & Web Development',
+    title: 'Techvix.org - Digital Solutions & Web Development',
     description: 'Professional digital solutions including web development, cybersecurity, graphic design, and AI services.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zyzops - Digital Solutions & Web Development',
+    title: 'Techvix.org - Digital Solutions & Web Development',
     description: 'Professional digital solutions including web development, cybersecurity, graphic design, and AI services.',
   },
   icons: {

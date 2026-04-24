@@ -4,22 +4,22 @@ import { GradientText } from '../gradient-text';
 
 const features = [
   {
-    icon: <Award size={40} />,
+    icon: <Award size={40} className="text-cyan-400" />,
     title: 'Expert Team',
     description: 'Experienced professionals with proven track record in delivering excellence.',
   },
   {
-    icon: <Zap size={40} />,
+    icon: <Zap size={40} className="text-cyan-400" />,
     title: 'Fast Delivery',
     description: 'Quick turnaround times without compromising on quality.',
   },
   {
-    icon: <Users size={40} />,
+    icon: <Users size={40} className="text-cyan-400" />,
     title: 'Client Focused',
     description: 'Your success is our priority. We listen and adapt to your needs.',
   },
   {
-    icon: <Lightbulb size={40} />,
+    icon: <Lightbulb size={40} className="text-cyan-400" />,
     title: 'Innovation',
     description: 'Cutting-edge solutions using the latest technologies and best practices.',
   },
@@ -31,19 +31,19 @@ export function WhyUsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Choose <GradientText>Zyzops</GradientText>
+            Why Choose <GradientText>Techvix.org</GradientText>
           </h2>
           <p className="text-white text-lg max-w-2xl mx-auto font-light">
             Partner with us for digital transformation that drives real results
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {features.map((feature, index) => (
             <GlassmorphismCard
               key={index}
               icon={feature.icon}
-              className="animate-fade-in-up"
+              className="animate-fade-in-up border-purple-500/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>

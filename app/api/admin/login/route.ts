@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // Default admin credentials (in production, use proper authentication)
 const ADMIN_USERS = [
-  { email: 'admin@zyzops.com', password: 'admin123', name: 'Admin' },
+  { email: 'admin@techvix.org', password: 'admin123', name: 'Admin' },
   { email: 'zaynabrehann@gmail.com', password: 'admin123', name: 'Zaynab' },
 ];
 
