@@ -129,8 +129,8 @@ export function PortfolioSection() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 md:px-6 py-2 rounded-full transition-all duration-300 hover:scale-110 text-sm md:text-base ${
                 activeCategory === cat
-                  ? 'bg-gradient-to-r from-cyan-500 to-pink-600 text-white shadow-[0_0_20px_rgba(219,39,119,0.4)] animate-glow font-semibold'
-                  : 'glass text-white hover:text-pink-600 hover-glow-pink font-semibold'
+                  ? 'bg-gradient-to-r from-pink-600 to-pink-500 text-white shadow-[0_0_20px_rgba(219,39,119,0.4)] font-semibold'
+                  : 'glass text-white hover:text-cyan-400 hover-glow-cyan font-semibold'
               }`}
               style={{ animation: `scale-in 0.6s ease-out ${0.3 + index * 0.1}s backwards` }}
             >
@@ -144,11 +144,11 @@ export function PortfolioSection() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group glass-accent rounded-lg overflow-hidden animate-scale-in hover:shadow-[0_0_30px_rgba(219,39,119,0.3)] hover:-translate-y-2 border-pink-600/30"
+              className="group glass-accent rounded-lg overflow-hidden animate-scale-in hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] hover:-translate-y-2 border-cyan-400/30"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Image */}
-              <div className="relative h-48 md:h-64 overflow-hidden bg-gradient-to-br from-pink-600/20 to-cyan-400/20">
+              <div className="relative h-48 md:h-64 overflow-hidden bg-gradient-to-br from-cyan-400/20 to-pink-600/20">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <p className="text-white/50 text-sm">Project Preview</p>
                 </div>
@@ -163,7 +163,7 @@ export function PortfolioSection() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-xs bg-pink-600/30 text-pink-400 px-3 py-1 rounded-full group-hover:bg-cyan-400/30 group-hover:text-cyan-300 transition-all duration-300"
+                      className="text-xs bg-cyan-400/20 text-cyan-400 px-3 py-1 rounded-full group-hover:bg-pink-600/20 group-hover:text-pink-400 transition-all duration-300"
                     >
                       {t}
                     </span>
@@ -171,7 +171,7 @@ export function PortfolioSection() {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-flex items-center gap-2 text-pink-600 hover:text-pink-400 transition-all duration-300 group-hover:translate-x-1"
+                  className="inline-flex items-center gap-2 text-cyan-400 hover:text-pink-500 transition-all duration-300 group-hover:translate-x-1"
                 >
                   View Live <ExternalLink size={16} />
                 </a>

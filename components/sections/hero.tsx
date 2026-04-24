@@ -16,8 +16,8 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in-up">
-            <div className="inline-block glass rounded-full px-4 py-2 mb-6 animate-slide-up glow-pink border-pink-600/50">
-              <p className="text-pink-600 text-sm font-semibold animate-neon-glow">Welcome to Techvix.org</p>
+            <div className="inline-block glass rounded-full px-4 py-2 mb-6 animate-slide-up border-cyan-400/50">
+              <p className="text-cyan-400 text-sm font-semibold">Welcome to Techvix.org</p>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -30,22 +30,22 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up" style={{ animationDelay: '0.3s' }}>
               <Link href="/#contact">
-                <GlowButton className="w-full sm:w-auto flex items-center justify-center gap-2 hover-glow-purple group">
+                <GlowButton className="w-full sm:w-auto flex items-center justify-center gap-2 group">
                   Start a Project <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </GlowButton>
               </Link>
-              <Link href="/#services">
-                <GlowButton variant="secondary" className="w-full sm:w-auto flex items-center justify-center gap-2 hover-glow-cyan">
-                  View Our Services
+              <Link href="/portfolio">
+                <GlowButton variant="secondary" className="w-full sm:w-auto flex items-center justify-center gap-2">
+                  View Our Work
                 </GlowButton>
               </Link>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-pink-600/30 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-cyan-400/30 animate-slide-up" style={{ animationDelay: '0.4s' }}>
               {stats.map((stat, index) => (
                 <div key={stat.label} className="group" style={{ animation: `scale-in 0.6s ease-out ${0.5 + index * 0.1}s backwards` }}>
-                  <p className="text-xl md:text-2xl font-bold text-pink-600 group-hover:text-cyan-400 transition-colors">{stat.number}</p>
+                  <p className="text-xl md:text-2xl font-bold text-cyan-400 group-hover:text-pink-500 transition-colors">{stat.number}</p>
                   <p className="text-xs md:text-sm text-white group-hover:text-cyan-300 transition-colors">{stat.label}</p>
                 </div>
               ))}

@@ -4,22 +4,22 @@ import { GradientText } from '../gradient-text';
 
 const features = [
   {
-    icon: <Award size={40} />,
+    icon: <Award size={40} className="text-cyan-400" />,
     title: 'Expert Team',
     description: 'Experienced professionals with proven track record in delivering excellence.',
   },
   {
-    icon: <Zap size={40} />,
+    icon: <Zap size={40} className="text-cyan-400" />,
     title: 'Fast Delivery',
     description: 'Quick turnaround times without compromising on quality.',
   },
   {
-    icon: <Users size={40} />,
+    icon: <Users size={40} className="text-cyan-400" />,
     title: 'Client Focused',
     description: 'Your success is our priority. We listen and adapt to your needs.',
   },
   {
-    icon: <Lightbulb size={40} />,
+    icon: <Lightbulb size={40} className="text-cyan-400" />,
     title: 'Innovation',
     description: 'Cutting-edge solutions using the latest technologies and best practices.',
   },
@@ -27,7 +27,7 @@ const features = [
 
 export function WhyUsSection() {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-pink-600/5 to-transparent">
+    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-cyan-400/5 to-transparent">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -43,7 +43,7 @@ export function WhyUsSection() {
             <GlassmorphismCard
               key={index}
               icon={feature.icon}
-              className="animate-fade-in-up border-pink-600/30"
+              className="animate-fade-in-up border-cyan-400/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>

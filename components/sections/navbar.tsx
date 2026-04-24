@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 const navLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'Services', href: '/#services' },
+  { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
@@ -66,7 +67,7 @@ export function Navbar() {
             ))}
             <Link
               href="/signin"
-              className="bg-gradient-to-r from-cyan-500 to-pink-600 text-white font-semibold px-5 py-2 rounded-lg hover:from-pink-600 hover:to-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-pink-600/30"
+              className="border-2 border-cyan-400 text-cyan-400 font-semibold px-5 py-2 rounded-lg hover:bg-cyan-400/10 hover:shadow-lg hover:shadow-cyan-400/30 transition-all duration-300"
             >
               Sign In
             </Link>
@@ -125,10 +126,10 @@ export function Navbar() {
             </nav>
 
             {/* Sign In Button */}
-            <div className="mt-6 pt-4 border-t border-pink-600/20">
+            <div className="mt-6 pt-4 border-t border-cyan-400/20">
               <Link
                 href="/signin"
-                className="block w-full text-center bg-gradient-to-r from-cyan-500 to-pink-600 text-white font-semibold px-5 py-3 rounded-lg hover:from-pink-600 hover:to-cyan-500 transition-all duration-300"
+                className="block w-full text-center border-2 border-cyan-400 text-cyan-400 font-semibold px-5 py-3 rounded-lg hover:bg-cyan-400/10 transition-all duration-300"
                 onClick={handleLinkClick}
               >
                 Sign In

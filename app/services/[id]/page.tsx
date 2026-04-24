@@ -91,7 +91,7 @@ export default function ServicePage() {
                 </Link>
                 <Link 
                   href={`/portfolio?service=${service.id}`}
-                  className="flex-1 text-center border-2 border-pink-600 text-pink-600 font-semibold px-6 py-3 rounded-lg hover:bg-pink-600/10 transition-all duration-300"
+                  className="flex-1 text-center border-2 border-cyan-400 text-cyan-400 font-semibold px-6 py-3 rounded-lg hover:bg-cyan-400/10 transition-all duration-300"
                 >
                   View Portfolio
                 </Link>

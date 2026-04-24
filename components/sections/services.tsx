@@ -10,7 +10,7 @@ import Link from 'next/link';
 export const services = [
   {
     id: 'web-development',
-    icon: <Code size={40} className="group-hover:text-cyan-400 transition-colors" />,
+    icon: <Code size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Web Development',
     description: 'Modern, responsive web applications built with the latest technologies and best practices.',
     fullDescription: 'We create stunning, high-performance websites and web applications that drive results. Our team specializes in modern frameworks and technologies to deliver scalable solutions.',
@@ -28,7 +28,7 @@ export const services = [
   },
   {
     id: 'app-development',
-    icon: <Cpu size={40} className="group-hover:text-cyan-300 transition-colors" />,
+    icon: <Cpu size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'App Development',
     description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
     fullDescription: 'Build powerful mobile applications that engage users and drive business growth. We develop for both iOS and Android platforms using cutting-edge technologies.',
@@ -46,7 +46,7 @@ export const services = [
   },
   {
     id: 'cybersecurity',
-    icon: <Shield size={40} className="group-hover:text-sky-400 transition-colors" />,
+    icon: <Shield size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Cybersecurity',
     description: 'Protect your business with comprehensive security solutions and threat prevention.',
     fullDescription: 'Safeguard your digital assets with our comprehensive cybersecurity services. We identify vulnerabilities and implement robust security measures to protect your business.',
@@ -64,7 +64,7 @@ export const services = [
   },
   {
     id: 'graphic-design',
-    icon: <Palette size={40} className="group-hover:text-cyan-400 transition-colors" />,
+    icon: <Palette size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Graphic Design',
     description: 'Creative visual design that captures your brand essence and engages your audience.',
     fullDescription: 'Transform your brand identity with stunning visual designs. Our creative team crafts compelling graphics that communicate your message effectively.',
@@ -82,7 +82,7 @@ export const services = [
   },
   {
     id: 'video-editing',
-    icon: <Video size={40} className="group-hover:text-yellow-400 transition-colors" />,
+    icon: <Video size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Video Editing',
     description: 'Professional video production and editing services for marketing and media content.',
     fullDescription: 'Create impactful video content that tells your story. From corporate videos to social media content, we deliver professional editing that captivates audiences.',
@@ -100,7 +100,7 @@ export const services = [
   },
   {
     id: 'ai-chatbot',
-    icon: <Brain size={40} className="group-hover:text-cyan-300 transition-colors" />,
+    icon: <Brain size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'AI Chatbot Integration',
     description: 'Intelligent chatbot solutions that enhance customer service and engagement.',
     fullDescription: 'Leverage artificial intelligence to automate customer interactions and improve service quality. Our chatbot solutions provide 24/7 support and enhance user experience.',
@@ -118,7 +118,7 @@ export const services = [
   },
   {
     id: 'copywriting',
-    icon: <MessageSquare size={40} className="group-hover:text-cyan-400 transition-colors" />,
+    icon: <MessageSquare size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Copywriting',
     description: 'Compelling and persuasive copy that converts readers into customers.',
     fullDescription: 'Words that sell. Our copywriting services craft compelling narratives that engage your audience and drive conversions across all platforms.',
@@ -136,7 +136,7 @@ export const services = [
   },
   {
     id: 'seo',
-    icon: <Zap size={40} className="group-hover:text-yellow-400 transition-colors" />,
+    icon: <Zap size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'SEO',
     description: 'Search engine optimization to boost your online visibility and organic traffic.',
     fullDescription: 'Dominate search rankings with our comprehensive SEO strategies. We optimize your online presence to attract qualified traffic and increase conversions.',
@@ -154,7 +154,7 @@ export const services = [
   },
   {
     id: 'social-media',
-    icon: <Share2 size={40} className="group-hover:text-sky-400 transition-colors" />,
+    icon: <Share2 size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Social Media Marketing',
     description: 'Strategic social media campaigns that build brand awareness and engagement.',
     fullDescription: 'Build a powerful social media presence that connects with your audience. Our strategies increase engagement, followers, and conversions across all platforms.',
@@ -172,7 +172,7 @@ export const services = [
   },
   {
     id: 'ads-management',
-    icon: <TrendingUp size={40} className="group-hover:text-cyan-400 transition-colors" />,
+    icon: <TrendingUp size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Ads Management',
     description: 'Data-driven advertising campaigns across multiple platforms for maximum ROI.',
     fullDescription: 'Maximize your advertising ROI with our data-driven approach. We create and manage campaigns that reach the right audience at the right time.',
@@ -190,7 +190,7 @@ export const services = [
   },
   {
     id: 'saas-development',
-    icon: <DollarSign size={40} className="group-hover:text-cyan-300 transition-colors" />,
+    icon: <DollarSign size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'SaaS Development',
     description: 'Scalable Software-as-a-Service solutions designed for modern businesses.',
     fullDescription: 'Build your next SaaS product with us. We specialize in creating scalable, secure, and user-friendly software solutions that grow with your business.',
@@ -208,7 +208,7 @@ export const services = [
   },
   {
     id: 'digital-marketing',
-    icon: <PenTool size={40} className="group-hover:text-yellow-400 transition-colors" />,
+    icon: <PenTool size={40} className="text-cyan-400 group-hover:text-pink-500 transition-colors" />,
     title: 'Digital Marketing',
     description: 'Comprehensive digital marketing strategies to grow your online presence.',
     fullDescription: 'Accelerate your growth with integrated digital marketing strategies. We combine multiple channels and tactics to maximize your reach and conversions.',
@@ -307,17 +307,17 @@ export function ServicesSection() {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-pink-600/20">
+                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-cyan-400/20">
                   <Link
                     href={`/services/${selectedService.id}`}
-                    className="flex-1 text-center bg-gradient-to-r from-cyan-500 to-pink-600 text-white font-semibold px-6 py-3 rounded-lg hover:from-pink-600 hover:to-cyan-500 transition-all duration-300"
+                    className="flex-1 text-center bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-pink-600/30 transition-all duration-300"
                     onClick={() => setSelectedService(null)}
                   >
                     View Full Details
                   </Link>
                   <Link
                     href="/#contact"
-                    className="flex-1 text-center border-2 border-pink-600 text-pink-600 font-semibold px-6 py-3 rounded-lg hover:bg-pink-600/10 transition-all duration-300"
+                    className="flex-1 text-center border-2 border-cyan-400 text-cyan-400 font-semibold px-6 py-3 rounded-lg hover:bg-cyan-400/10 transition-all duration-300"
                     onClick={() => setSelectedService(null)}
                   >
                     Get a Quote

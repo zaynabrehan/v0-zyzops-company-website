@@ -178,7 +178,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-pink-600/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-pink-600 transition-colors"
+                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="John Doe"
                 />
               </div>
@@ -194,7 +194,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-pink-600/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-pink-600 transition-colors"
+                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -207,7 +207,7 @@ export function ContactSection() {
                 <button
                   type="button"
                   onClick={() => setIsServiceDialogOpen(true)}
-                  className="w-full bg-white/5 border border-pink-600/30 rounded-lg px-4 py-3 text-left flex items-center justify-between focus:outline-none focus:border-pink-600 transition-colors"
+                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-left flex items-center justify-between focus:outline-none focus:border-cyan-400 transition-colors"
                 >
                   <span className={selectedServices.length > 0 ? 'text-white' : 'text-gray-400'}>
                     {getSelectedServiceLabels()}
@@ -227,7 +227,7 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-white/5 border border-pink-600/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-pink-600 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
@@ -236,7 +236,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-cyan-500 to-pink-600 text-white font-semibold px-8 py-3 rounded-lg hover:from-pink-600 hover:to-cyan-500 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-pink-600/30 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -286,18 +286,18 @@ export function ContactSection() {
             ))}
           </div>
 
-          <div className="flex gap-3 mt-6 pt-4 border-t border-pink-600/20">
+          <div className="flex gap-3 mt-6 pt-4 border-t border-cyan-400/20">
             <button
               type="button"
               onClick={() => setSelectedServices([])}
-              className="flex-1 border border-gray-500 text-gray-300 font-semibold px-4 py-2 rounded-lg hover:bg-white/5 transition-colors"
+              className="flex-1 border-2 border-cyan-400 text-cyan-400 font-semibold px-4 py-2 rounded-lg hover:bg-cyan-400/10 transition-colors"
             >
               Clear All
             </button>
             <button
               type="button"
               onClick={confirmServiceSelection}
-              className="flex-1 bg-gradient-to-r from-cyan-500 to-pink-600 text-white font-semibold px-4 py-2 rounded-lg hover:from-pink-600 hover:to-cyan-500 transition-all"
+              className="flex-1 bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-pink-600/30 transition-all"
             >
               Confirm ({selectedServices.length})
             </button>

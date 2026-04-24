@@ -309,15 +309,15 @@
 
   /* Glassmorphism utilities */
   .glass {
-    @apply bg-black/40 backdrop-blur-lg border border-pink-600/30;
+    @apply bg-black/40 backdrop-blur-lg border border-cyan-400/30;
   }
 
   .glass-dark {
-    @apply bg-black/60 backdrop-blur-lg border border-pink-600/20;
+    @apply bg-black/60 backdrop-blur-lg border border-cyan-400/20;
   }
 
   .glass-accent {
-    @apply bg-black/50 backdrop-blur-md border border-pink-600/30 shadow-lg shadow-pink-600/10;
+    @apply bg-black/50 backdrop-blur-md border border-cyan-400/30 shadow-lg shadow-cyan-400/10;
   }
 
   /* Gradient text */

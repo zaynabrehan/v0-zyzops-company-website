@@ -12,6 +12,7 @@ const socialLinks = [
 const quickLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'Services', href: '/#services' },
+  { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
@@ -29,7 +30,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-t from-pink-600/5 to-transparent border-t border-pink-600/20">
+    <footer className="bg-gradient-to-t from-cyan-400/5 to-transparent border-t border-cyan-400/20">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
@@ -54,7 +55,7 @@ export function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="p-2 rounded-full bg-pink-600/20 text-pink-600 hover:bg-cyan-400/20 hover:text-cyan-400 transition-all"
+                    className="p-2 rounded-full bg-cyan-400/20 text-cyan-400 hover:bg-pink-600/20 hover:text-pink-500 transition-all"
                     aria-label={social.label}
                   >
                     <Icon size={20} />
@@ -123,7 +124,7 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-pink-600/20 mb-8" />
+        <div className="border-t border-cyan-400/20 mb-8" />
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 font-light gap-4">
