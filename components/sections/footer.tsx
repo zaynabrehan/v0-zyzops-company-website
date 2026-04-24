@@ -1,5 +1,5 @@
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import { GradientText } from '../gradient-text';
+import Image from 'next/image';
 
 const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
@@ -35,8 +35,14 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="text-2xl font-bold mb-4">
-              <span className="gradient-text">Techvix.org</span>
+            <div className="mb-4">
+              <Image
+                src="/techvix-logo.png"
+                alt="Techvix.org"
+                width={140}
+                height={38}
+                className="h-9 w-auto"
+              />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.

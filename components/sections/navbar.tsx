@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { GlowButton } from '../glow-button';
+import Image from 'next/image';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -34,9 +34,16 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="text-2xl font-bold animate-fade-in-up text-white">
-            <span className="gradient-text animate-neon-glow">Techvix.org</span>
-          </div>
+          <a href="#home" className="flex items-center animate-fade-in-up">
+            <Image
+              src="/techvix-logo.png"
+              alt="Techvix.org"
+              width={150}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8 items-center">
