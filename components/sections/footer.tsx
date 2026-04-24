@@ -1,5 +1,5 @@
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import Image from 'next/image';
+import { TechvixLogo } from '../techvix-logo';
 
 const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
@@ -36,13 +36,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <Image
-                src="/techvix-logo.png"
-                alt="Techvix.org"
-                width={160}
-                height={45}
-                className="h-12 w-auto"
-              />
+              <TechvixLogo size="md" />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.
