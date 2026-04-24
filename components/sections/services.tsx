@@ -9,12 +9,12 @@ import { GradientText } from '../gradient-text';
     description: 'Modern, responsive web applications built with the latest technologies and best practices.',
   },
   {
-    icon: <Cpu size={40} className="group-hover:text-purple-400 transition-colors" />,
+    icon: <Cpu size={40} className="group-hover:text-cyan-300 transition-colors" />,
     title: 'App Development',
     description: 'Native and cross-platform mobile applications that deliver exceptional user experiences.',
   },
   {
-    icon: <Shield size={40} className="group-hover:text-pink-400 transition-colors" />,
+    icon: <Shield size={40} className="group-hover:text-sky-400 transition-colors" />,
     title: 'Cybersecurity',
     description: 'Protect your business with comprehensive security solutions and threat prevention.',
   },
@@ -29,7 +29,7 @@ import { GradientText } from '../gradient-text';
     description: 'Professional video production and editing services for marketing and media content.',
   },
   {
-    icon: <Brain size={40} className="group-hover:text-purple-400 transition-colors" />,
+    icon: <Brain size={40} className="group-hover:text-cyan-300 transition-colors" />,
     title: 'AI Chatbot Integration',
     description: 'Intelligent chatbot solutions that enhance customer service and engagement.',
   },
@@ -44,7 +44,7 @@ import { GradientText } from '../gradient-text';
     description: 'Search engine optimization to boost your online visibility and organic traffic.',
   },
   {
-    icon: <Share2 size={40} className="group-hover:text-pink-400 transition-colors" />,
+    icon: <Share2 size={40} className="group-hover:text-sky-400 transition-colors" />,
     title: 'Social Media Marketing',
     description: 'Strategic social media campaigns that build brand awareness and engagement.',
   },
@@ -54,7 +54,7 @@ import { GradientText } from '../gradient-text';
     description: 'Data-driven advertising campaigns across multiple platforms for maximum ROI.',
   },
   {
-    icon: <DollarSign size={40} className="group-hover:text-purple-400 transition-colors" />,
+    icon: <DollarSign size={40} className="group-hover:text-cyan-300 transition-colors" />,
     title: 'SaaS Development',
     description: 'Scalable Software-as-a-Service solutions designed for modern businesses.',
   },

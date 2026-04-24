@@ -1,5 +1,5 @@
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import { TechvixLogo } from '../techvix-logo';
+import Image from 'next/image';
 
 const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
@@ -29,14 +29,20 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-t from-purple-500/5 to-transparent border-t border-purple-500/20">
+    <footer className="bg-gradient-to-t from-cyan-500/5 to-transparent border-t border-cyan-500/20">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <TechvixLogo size="md" />
+              <Image
+                src="/techvix-logo.png"
+                alt="Techvix.org"
+                width={180}
+                height={50}
+                className="h-14 w-auto"
+              />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.
@@ -117,7 +123,7 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-purple-500/20 mb-8" />
+        <div className="border-t border-cyan-500/20 mb-8" />
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 font-light">

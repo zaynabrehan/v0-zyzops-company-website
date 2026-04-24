@@ -94,7 +94,7 @@ export function ContactSection() {
             </div>
 
             {/* Quick CTA */}
-            <div className="pt-8 border-t border-purple-500/20">
+            <div className="pt-8 border-t border-cyan-500/20">
               <a
                 href="https://wa.me/923245531819"
                 target="_blank"
@@ -130,7 +130,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="John Doe"
                 />
               </div>
@@ -146,7 +146,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -160,7 +160,7 @@ export function ContactSection() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-cyan-500/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors"
                 >
                   <option value="web-development">Web Development</option>
                   <option value="app-development">App Development</option>
@@ -188,7 +188,7 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-cyan-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>

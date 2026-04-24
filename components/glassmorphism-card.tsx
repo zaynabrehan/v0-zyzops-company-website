@@ -6,8 +6,8 @@ interface GlassmorphismCardProps {
 
 export function GlassmorphismCard({ children, className = '', icon }: GlassmorphismCardProps) {
   return (
-    <div className={`glass-accent rounded-xl p-6 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all duration-300 hover:translate-y-[-8px] ${className}`}>
-      {icon && <div className="mb-4 text-cyan-400 group-hover:text-purple-400 transition-colors duration-300">{icon}</div>}
+    <div className={`glass-accent rounded-xl p-6 hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 hover:translate-y-[-8px] ${className}`}>
+      {icon && <div className="mb-4 text-cyan-400 group-hover:text-sky-400 transition-colors duration-300">{icon}</div>}
       {children}
     </div>
   );

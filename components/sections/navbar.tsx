@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { TechvixLogo } from '../techvix-logo';
+import Image from 'next/image';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -35,7 +35,14 @@ export function Navbar() {
         <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <a href="#home" className="flex items-center animate-fade-in-up">
-            <TechvixLogo size="lg" />
+            <Image
+              src="/techvix-logo.png"
+              alt="Techvix.org"
+              width={220}
+              height={60}
+              className="h-16 w-auto"
+              priority
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -54,7 +61,7 @@ export function Navbar() {
             ))}
             <a
               href="/signin"
-              className="text-gray-200 hover:text-cyan-400 transition-all duration-300 font-semibold border border-purple-500/50 px-4 py-2 rounded-lg hover:border-cyan-400"
+              className="text-gray-200 hover:text-cyan-400 transition-all duration-300 font-semibold border border-cyan-500/50 px-4 py-2 rounded-lg hover:border-cyan-400"
             >
               Sign In
             </a>

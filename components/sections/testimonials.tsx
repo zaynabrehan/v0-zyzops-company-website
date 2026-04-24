@@ -50,7 +50,7 @@ export function TestimonialsSection() {
               </p>
 
               {/* Author */}
-              <div className="border-t border-purple-500/20 pt-4">
+              <div className="border-t border-cyan-500/20 pt-4">
                 <p className="font-semibold text-white">{testimonial.name}</p>
                 <p className="text-sm text-white font-light">{testimonial.role}</p>
               </div>

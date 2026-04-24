@@ -52,11 +52,11 @@ export function HeroSection() {
             <div className="relative w-80 h-80">
               {/* Gradient circles with animations */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-cyan-400/30 rounded-full blur-3xl animate-bounce-gentle glow-purple" />
-              <div className="absolute inset-8 bg-gradient-to-tr from-cyan-400/30 to-purple-500/30 rounded-full blur-2xl animate-pulse-soft glow-cyan" />
-              <div className="absolute inset-16 bg-gradient-to-b from-purple-600/20 to-transparent rounded-full blur-2xl animate-float" />
+              <div className="absolute inset-8 bg-gradient-to-tr from-cyan-400/30 to-sky-500/30 rounded-full blur-2xl animate-pulse-soft glow-cyan" />
+              <div className="absolute inset-16 bg-gradient-to-b from-cyan-600/20 to-transparent rounded-full blur-2xl animate-float" />
               
               {/* Center card */}
-              <div className="absolute inset-0 glass-accent rounded-2xl flex items-center justify-center flex-col gap-4 p-8 hover-glow-purple">
+              <div className="absolute inset-0 glass-accent rounded-2xl flex items-center justify-center flex-col gap-4 p-8 hover-glow-cyan">
                 <div className="text-cyan-400 animate-float-rotate">
                   <Check size={80} strokeWidth={1.5} />
                 </div>
