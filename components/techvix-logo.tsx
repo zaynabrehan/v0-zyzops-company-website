@@ -30,16 +30,26 @@ export function TechvixLogo({ className = '', size = 'md' }: TechvixLogoProps) {
     >
       {/* No background - transparent */}
       
-      {/* Arrow/Chevron Icon - exact match to original logo design */}
+      {/* 3D Chevron Icon - exact match to provided symbol */}
       <g transform={`translate(0, ${(height - iconSize) / 2})`}>
-        {/* Top part - lighter cyan */}
+        {/* Top portion - lighter cyan (#22d3ee) */}
         <path
-          d={`M0 0 L${iconSize * 0.75} ${iconSize * 0.5} L${iconSize * 0.25} ${iconSize * 0.5} L0 ${iconSize * 0.25} Z`}
+          d={`M0 0 
+              L${iconSize * 0.35} 0 
+              L${iconSize} ${iconSize * 0.5} 
+              L${iconSize * 0.35} ${iconSize * 0.5} 
+              L0 ${iconSize * 0.18} 
+              Z`}
           fill="#22d3ee"
         />
-        {/* Bottom part - darker cyan for 3D depth */}
+        {/* Bottom portion - darker cyan (#06b6d4) for 3D depth */}
         <path
-          d={`M0 ${iconSize * 0.25} L${iconSize * 0.25} ${iconSize * 0.5} L${iconSize * 0.75} ${iconSize * 0.5} L0 ${iconSize} Z`}
+          d={`M0 ${iconSize * 0.18} 
+              L${iconSize * 0.35} ${iconSize * 0.5} 
+              L${iconSize} ${iconSize * 0.5} 
+              L${iconSize * 0.35} ${iconSize} 
+              L0 ${iconSize} 
+              Z`}
           fill="#06b6d4"
         />
       </g>
