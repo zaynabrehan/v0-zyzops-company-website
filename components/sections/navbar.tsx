@@ -7,7 +7,7 @@ import Image from 'next/image';
 const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -28,19 +28,19 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass' : 'bg-transparent'
+        isScrolled ? 'glass py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-28">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="#home" className="flex items-center animate-fade-in-up">
+          <a href="/#home" className="flex items-center animate-fade-in-up">
             <Image
               src="/techvix-logo.png"
               alt="Techvix.org"
-              width={280}
-              height={80}
-              className="h-20 w-auto"
+              width={320}
+              height={90}
+              className={`transition-all duration-300 ${isScrolled ? 'h-14 w-auto' : 'h-20 w-auto'}`}
               priority
             />
           </a>
@@ -51,7 +51,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-200 hover:text-cyan-400 transition-all duration-300 hover:glow-cyan font-semibold"
+                className="text-cyan-100 hover:text-pink-400 transition-all duration-300 font-semibold"
                 style={{
                   animation: `fade-in-up 0.6s ease-out ${index * 0.1}s backwards`,
                 }}
@@ -61,7 +61,7 @@ export function Navbar() {
             ))}
             <a
               href="/signin"
-              className="text-gray-200 hover:text-cyan-400 transition-all duration-300 font-semibold border border-cyan-500/50 px-4 py-2 rounded-lg hover:border-cyan-400"
+              className="bg-gradient-to-r from-cyan-500 to-pink-500 text-white font-semibold px-5 py-2 rounded-lg hover:from-pink-500 hover:to-cyan-500 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30"
             >
               Sign In
             </a>
@@ -70,7 +70,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-200 hover:text-cyan-400 font-semibold"
+            className="md:hidden p-2 text-cyan-100 hover:text-pink-400 font-semibold"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -78,12 +78,12 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2 animate-fade-in-down">
+          <div className="md:hidden pb-4 space-y-2 animate-fade-in-down mt-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block px-4 py-2 text-gray-200 hover:text-cyan-400 transition-colors font-semibold"
+                className="block px-4 py-2 text-cyan-100 hover:text-pink-400 transition-colors font-semibold"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -91,7 +91,7 @@ export function Navbar() {
             ))}
             <a
               href="/signin"
-              className="block px-4 py-2 text-gray-200 hover:text-cyan-400 transition-colors font-semibold"
+              className="block mx-4 text-center bg-gradient-to-r from-cyan-500 to-pink-500 text-white font-semibold px-5 py-2 rounded-lg"
               onClick={() => setIsOpen(false)}
             >
               Sign In

@@ -9,11 +9,11 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 const serviceLinks = [
@@ -29,7 +29,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-t from-cyan-500/5 to-transparent border-t border-cyan-500/20">
+    <footer className="bg-gradient-to-t from-pink-500/5 to-transparent border-t border-cyan-500/20">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-12 mb-12">
@@ -39,9 +39,9 @@ export function Footer() {
               <Image
                 src="/techvix-logo.png"
                 alt="Techvix.org"
-                width={220}
-                height={65}
-                className="h-16 w-auto"
+                width={260}
+                height={75}
+                className="h-18 w-auto"
               />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">

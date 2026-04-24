@@ -70,8 +70,8 @@ export function PortfolioSection() {
               onClick={() => setActiveCategory(cat)}
               className={`px-6 py-2 rounded-full transition-all duration-300 hover:scale-110 ${
                 activeCategory === cat
-                  ? 'bg-gradient-to-r from-purple-500 to-cyan-400 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] animate-glow font-semibold'
-                  : 'glass text-white hover:text-cyan-400 hover-glow-cyan font-semibold'
+                  ? 'bg-gradient-to-r from-cyan-500 to-pink-500 text-white shadow-[0_0_20px_rgba(236,72,153,0.4)] animate-glow font-semibold'
+                  : 'glass text-white hover:text-pink-400 hover-glow-cyan font-semibold'
               }`}
               style={{ animation: `scale-in 0.6s ease-out ${0.3 + index * 0.1}s backwards` }}
             >
@@ -85,7 +85,7 @@ export function PortfolioSection() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group glass-accent rounded-lg overflow-hidden animate-scale-in hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:-translate-y-2 border-purple-500/30"
+              className="group glass-accent rounded-lg overflow-hidden animate-scale-in hover:shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:-translate-y-2 border-cyan-500/30"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Image */}
@@ -106,7 +106,7 @@ export function PortfolioSection() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-xs bg-purple-500/30 text-purple-300 px-3 py-1 rounded-full group-hover:bg-cyan-400/30 group-hover:text-cyan-300 transition-all duration-300"
+                      className="text-xs bg-cyan-500/30 text-cyan-300 px-3 py-1 rounded-full group-hover:bg-pink-400/30 group-hover:text-pink-300 transition-all duration-300"
                     >
                       {t}
                     </span>
