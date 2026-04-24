@@ -73,7 +73,7 @@ export function ServicesSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-neon-glow">
             Our <GradientText>Services</GradientText>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
+          <p className="text-white text-lg max-w-2xl mx-auto animate-slide-up font-light" style={{ animationDelay: '0.1s' }}>
             Comprehensive digital solutions tailored to your business needs
           </p>
         </div>

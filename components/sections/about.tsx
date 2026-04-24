@@ -8,7 +8,7 @@ export function AboutSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             About <GradientText>Zyzops</GradientText>
           </h2>
-          <p className="text-gray-300 text-lg font-light">
+          <p className="text-white text-lg font-light">
             Delivering Digital Excellence Since Day One
           </p>
         </div>
@@ -16,25 +16,25 @@ export function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in-up">
-            <p className="text-gray-300 leading-relaxed mb-6 font-light">
+            <p className="text-white leading-relaxed mb-6 font-light">
               Zyzops is a forward-thinking digital solutions company dedicated to transforming businesses through innovative technology. Our team of skilled professionals brings years of experience in web development, cybersecurity, design, and artificial intelligence.
             </p>
 
-            <p className="text-gray-300 leading-relaxed mb-6 font-light">
+            <p className="text-white leading-relaxed mb-6 font-light">
               We believe in building long-term partnerships with our clients. Our approach combines strategic thinking, creative design, and technical excellence to deliver solutions that not only meet but exceed expectations.
             </p>
 
             <div className="space-y-4">
               <div>
                 <h3 className="font-semibold text-cyan-400 mb-2">Our Mission</h3>
-                <p className="text-gray-300 font-light">
+                <p className="text-white font-light">
                   To empower businesses by delivering cutting-edge digital solutions that drive growth and innovation.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-semibold text-cyan-400 mb-2">Our Vision</h3>
-                <p className="text-gray-300 font-light">
+                <p className="text-white font-light">
                   To be the trusted partner for businesses seeking digital transformation and technological excellence.
                 </p>
               </div>
@@ -56,7 +56,7 @@ export function AboutSection() {
                 ].map((item, index) => (
                   <li key={index} className="flex gap-3">
                     <span className="text-cyan-400 font-bold">✓</span>
-                    <span className="text-gray-300 font-light">{item}</span>
+                    <span className="text-white font-light">{item}</span>
                   </li>
                 ))}
               </ul>

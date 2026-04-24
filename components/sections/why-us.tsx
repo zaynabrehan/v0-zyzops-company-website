@@ -33,7 +33,7 @@ export function WhyUsSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Why Choose <GradientText>Zyzops</GradientText>
           </h2>
-          <p className="text-black text-lg max-w-2xl mx-auto font-light">
+          <p className="text-white text-lg max-w-2xl mx-auto font-light">
             Partner with us for digital transformation that drives real results
           </p>
         </div>
@@ -46,8 +46,8 @@ export function WhyUsSection() {
               className="animate-fade-in-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <h3 className="text-lg font-bold text-black mb-3">{feature.title}</h3>
-              <p className="text-black text-sm font-light">{feature.description}</p>
+              <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>
+              <p className="text-white text-sm font-light">{feature.description}</p>
             </GlassmorphismCard>
           ))}
         </div>

@@ -39,7 +39,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-8 items-center">
             {navLinks.map((link, index) => (
               <a
                 key={link.href}
@@ -52,6 +52,12 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/signin"
+              className="text-gray-200 hover:text-cyan-400 transition-all duration-300 font-semibold border border-purple-500/50 px-4 py-2 rounded-lg hover:border-cyan-400"
+            >
+              Sign In
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -76,6 +82,13 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/signin"
+              className="block px-4 py-2 text-gray-200 hover:text-cyan-400 transition-colors font-semibold"
+              onClick={() => setIsOpen(false)}
+            >
+              Sign In
+            </a>
           </div>
         )}
       </div>
