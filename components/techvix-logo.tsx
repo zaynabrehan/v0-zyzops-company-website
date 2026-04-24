@@ -30,50 +30,30 @@ export function TechvixLogo({ className = '', size = 'md' }: TechvixLogoProps) {
     >
       {/* No background - transparent */}
       
-      {/* Arrow/Chevron Icon - exact match to original: cyan 3D chevron */}
+      {/* Arrow/Chevron Icon - exact match to original logo design */}
       <g transform={`translate(0, ${(height - iconSize) / 2})`}>
-        {/* Top part of arrow - lighter cyan (#22d3ee) */}
+        {/* Top part - lighter cyan */}
         <path
-          d={`M0 ${iconSize * 0.1} 
-              L${iconSize * 0.7} ${iconSize * 0.5} 
-              L${iconSize * 0.22} ${iconSize * 0.5} 
-              L0 ${iconSize * 0.32} Z`}
+          d={`M0 0 L${iconSize * 0.75} ${iconSize * 0.5} L${iconSize * 0.25} ${iconSize * 0.5} L0 ${iconSize * 0.25} Z`}
           fill="#22d3ee"
         />
-        {/* Bottom part of arrow - darker cyan (#06b6d4) for 3D effect */}
+        {/* Bottom part - darker cyan for 3D depth */}
         <path
-          d={`M0 ${iconSize * 0.32} 
-              L${iconSize * 0.22} ${iconSize * 0.5} 
-              L${iconSize * 0.7} ${iconSize * 0.5} 
-              L0 ${iconSize * 0.9} Z`}
+          d={`M0 ${iconSize * 0.25} L${iconSize * 0.25} ${iconSize * 0.5} L${iconSize * 0.75} ${iconSize * 0.5} L0 ${iconSize} Z`}
           fill="#06b6d4"
         />
       </g>
 
-      {/* "Tech" text - WHITE color as in original logo */}
+      {/* "Techvix" as single text element - no space between Tech and vix */}
       <text
-        x={iconSize + 6}
+        x={iconSize + 8}
         y={height / 2 + fontSize * 0.35}
         fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         fontSize={fontSize}
         fontWeight="700"
-        fill="#FFFFFF"
         letterSpacing="-0.5"
       >
-        Tech
-      </text>
-
-      {/* "vix" text - bright cyan (#22d3ee) as in original logo */}
-      <text
-        x={iconSize + 6 + fontSize * 2.45}
-        y={height / 2 + fontSize * 0.35}
-        fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
-        fontSize={fontSize}
-        fontWeight="700"
-        fill="#22d3ee"
-        letterSpacing="-0.5"
-      >
-        vix
+        <tspan fill="#FFFFFF">Tech</tspan><tspan fill="#22d3ee">vix</tspan>
       </text>
     </svg>
   );
