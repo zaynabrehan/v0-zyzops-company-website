@@ -1,6 +1,6 @@
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { TechvixLogo } from '@/components/techvix-logo';
 
 const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
@@ -33,10 +33,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
-          {/* Brand - SVG Logo with transparent background */}
+          {/* Brand - Logo image with mix-blend-mode to remove black background */}
           <div className="sm:col-span-2 md:col-span-1">
             <div className="mb-4">
-              <TechvixLogo size="md" />
+              <Image
+                src="/images/techvix-logo-dark.jpeg"
+                alt="Techvix"
+                width={160}
+                height={44}
+                className="h-8 w-auto mix-blend-screen"
+              />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.

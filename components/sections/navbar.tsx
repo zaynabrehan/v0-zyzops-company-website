@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Code, Shield, Palette, Video, Zap, Brain, Cpu, MessageSquare, Share2, TrendingUp, DollarSign, PenTool } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { TechvixLogo } from '@/components/techvix-logo';
 
 // Services data for dropdown
 const serviceCategories = [
@@ -76,9 +76,16 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - SVG with transparent background, matches navbar */}
+          {/* Logo - Using actual image with mix-blend-mode to remove black background */}
           <Link href="/#home" className="flex items-center animate-fade-in-up">
-            <TechvixLogo size={isScrolled ? 'sm' : 'md'} className="transition-all duration-300" />
+            <Image
+              src="/images/techvix-logo-dark.jpeg"
+              alt="Techvix"
+              width={180}
+              height={50}
+              className={`transition-all duration-300 mix-blend-screen ${isScrolled ? 'h-9 w-auto' : 'h-10 w-auto'}`}
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -193,7 +200,13 @@ export function Navbar() {
           <div className="flex flex-col p-6">
             {/* Logo in mobile menu */}
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-purple-500/20">
-              <TechvixLogo size="sm" />
+              <Image
+                src="/images/techvix-logo-dark.jpeg"
+                alt="Techvix"
+                width={150}
+                height={40}
+                className="h-9 w-auto mix-blend-screen"
+              />
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-2 text-cyan-100 hover:text-cyan-400 transition-colors"
