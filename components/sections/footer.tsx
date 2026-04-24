@@ -38,7 +38,7 @@ export function Footer() {
             <div className="text-2xl font-bold mb-4">
               <span className="gradient-text">ZYZOPS</span>
             </div>
-            <p className="text-black text-sm leading-relaxed font-light">
+            <p className="text-gray-300 text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.
             </p>
             <div className="flex gap-4 mt-6">
@@ -60,7 +60,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-black mb-6">Quick Links</h3>
+            <h3 className="font-semibold text-white mb-6">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
@@ -77,7 +77,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-black mb-6">Services</h3>
+            <h3 className="font-semibold text-white mb-6">Services</h3>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
@@ -94,23 +94,23 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-black mb-6">Contact</h3>
+            <h3 className="font-semibold text-white mb-6">Contact</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <p className="text-black font-light">Email</p>
-                <a href="mailto:hello@zyzops.com" className="text-cyan-400 hover:text-cyan-300">
-                  hello@zyzops.com
+                <p className="text-gray-300 font-light">Email</p>
+                <a href="mailto:zaynabrehann@gmail.com" className="text-cyan-400 hover:text-cyan-300">
+                  zaynabrehann@gmail.com
                 </a>
               </li>
               <li>
-                <p className="text-black font-light">WhatsApp</p>
-                <a href="https://wa.me/15551234567" className="text-cyan-400 hover:text-cyan-300">
-                  +1 (555) 123-4567
+                <p className="text-gray-300 font-light">WhatsApp</p>
+                <a href="https://wa.me/923245531819" className="text-cyan-400 hover:text-cyan-300">
+                  03245531819
                 </a>
               </li>
               <li>
-                <p className="text-black font-light">Location</p>
-                <p className="text-black font-light">123 Business Street, Tech City, TC 12345</p>
+                <p className="text-gray-300 font-light">Location</p>
+                <p className="text-gray-300 font-light">Lahore Cantt, Pakistan</p>
               </li>
             </ul>
           </div>
@@ -120,13 +120,13 @@ export function Footer() {
         <div className="border-t border-purple-500/20 mb-8" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-black font-light">
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 font-light">
           <p>&copy; {currentYear} Zyzops. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="text-black hover:text-cyan-600 transition-colors font-light">
+            <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
               Privacy Policy
             </a>
-            <a href="#" className="text-black hover:text-cyan-600 transition-colors font-light">
+            <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
               Terms of Service
             </a>
           </div>

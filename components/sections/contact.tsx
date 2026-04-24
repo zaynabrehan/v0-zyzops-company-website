@@ -14,6 +14,7 @@ export function ContactSection() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -23,14 +24,28 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage('');
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
+    try {
+      const response = await fetch('/api/admin/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitMessage('Thank you! We&apos;ll get back to you soon.');
+        setFormData({ name: '', email: '', service: 'web-development', message: '' });
+        setTimeout(() => setSubmitMessage(''), 5000);
+      } else {
+        setSubmitMessage('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitMessage('An error occurred. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', service: 'web-development', message: '' });
-      alert('Thank you! We&apos;ll get back to you soon.');
-    }, 1500);
+    }
   };
 
   return (
@@ -40,7 +55,7 @@ export function ContactSection() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Get in <GradientText>Touch</GradientText>
           </h2>
-          <p className="text-black text-lg font-light">
+          <p className="text-gray-300 text-lg font-light">
             Ready to start your next project? Let&apos;s talk!
           </p>
         </div>
@@ -53,8 +68,8 @@ export function ContactSection() {
                 <Mail size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-black mb-1">Email</h3>
-                <p className="text-black font-light">hello@zyzops.com</p>
+                <h3 className="font-semibold text-white mb-1">Email</h3>
+                <p className="text-gray-300 font-light">zaynabrehann@gmail.com</p>
               </div>
             </div>
 
@@ -63,8 +78,8 @@ export function ContactSection() {
                 <MessageSquare size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-black mb-1">WhatsApp</h3>
-                <p className="text-black font-light">+1 (555) 123-4567</p>
+                <h3 className="font-semibold text-white mb-1">WhatsApp</h3>
+                <p className="text-gray-300 font-light">03245531819</p>
               </div>
             </div>
 
@@ -73,15 +88,15 @@ export function ContactSection() {
                 <MapPin size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-black mb-1">Location</h3>
-                <p className="text-black font-light">123 Business Street, Tech City, TC 12345</p>
+                <h3 className="font-semibold text-white mb-1">Location</h3>
+                <p className="text-gray-300 font-light">Lahore Cantt, Pakistan</p>
               </div>
             </div>
 
             {/* Quick CTA */}
             <div className="pt-8 border-t border-purple-500/20">
               <a
-                href="https://wa.me/15551234567"
+                href="https://wa.me/923245531819"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block"
@@ -94,9 +109,19 @@ export function ContactSection() {
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="glass rounded-xl p-8 animate-fade-in-down">
             <div className="space-y-6">
+              {submitMessage && (
+                <div className={`p-4 rounded-lg ${
+                  submitMessage.includes('Thank') 
+                    ? 'bg-green-500/20 border border-green-500/50 text-green-300' 
+                    : 'bg-red-500/20 border border-red-500/50 text-red-300'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
+
               {/* Name Input */}
               <div>
-                <label className="block text-sm font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Your Name
                 </label>
                 <input
@@ -105,14 +130,14 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="John Doe"
                 />
               </div>
 
               {/* Email Input */}
               <div>
-                <label className="block text-sm font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Email Address
                 </label>
                 <input
@@ -121,14 +146,14 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
 
               {/* Service Select */}
               <div>
-                <label className="block text-sm font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Service Interest
                 </label>
                 <select
@@ -138,17 +163,23 @@ export function ContactSection() {
                   className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors"
                 >
                   <option value="web-development">Web Development</option>
+                  <option value="app-development">App Development</option>
                   <option value="cybersecurity">Cybersecurity</option>
                   <option value="graphic-design">Graphic Design</option>
                   <option value="video-editing">Video Editing</option>
-                  <option value="seo-marketing">SEO & Digital Marketing</option>
-                  <option value="ai-ml">AI & Machine Learning</option>
+                  <option value="ai-chatbot">AI Chatbot Integration</option>
+                  <option value="copywriting">Copywriting</option>
+                  <option value="seo">SEO</option>
+                  <option value="social-media">Social Media Marketing</option>
+                  <option value="ads-management">Ads Management</option>
+                  <option value="saas">SaaS Development</option>
+                  <option value="digital-marketing">Digital Marketing</option>
                 </select>
               </div>
 
               {/* Message Textarea */}
               <div>
-                <label className="block text-sm font-medium text-black mb-2">
+                <label className="block text-sm font-medium text-white mb-2">
                   Message
                 </label>
                 <textarea
