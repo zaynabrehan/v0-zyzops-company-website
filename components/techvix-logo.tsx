@@ -28,27 +28,29 @@ export function TechvixLogo({ className = '', size = 'md' }: TechvixLogoProps) {
       role="img"
       aria-label="Techvix logo"
     >
-      {/* No background - transparent */}
+      {/* No background - transparent, blends with navbar */}
       
-      {/* 3D Chevron Icon - exact match to provided symbol */}
+      {/* 3D Chevron Icon - exact match to Techvix logo symbol */}
       <g transform={`translate(0, ${(height - iconSize) / 2})`}>
-        {/* Top portion - lighter cyan (#22d3ee) */}
+        {/* Top portion - lighter cyan, forms upper part of the arrow */}
         <path
-          d={`M0 0 
-              L${iconSize * 0.35} 0 
+          d={`M0 ${iconSize * 0.08} 
+              L${iconSize * 0.42} ${iconSize * 0.08} 
               L${iconSize} ${iconSize * 0.5} 
-              L${iconSize * 0.35} ${iconSize * 0.5} 
-              L0 ${iconSize * 0.18} 
+              L${iconSize * 0.42} ${iconSize * 0.5} 
+              L${iconSize * 0.18} ${iconSize * 0.32}
+              L0 ${iconSize * 0.32} 
               Z`}
           fill="#22d3ee"
         />
-        {/* Bottom portion - darker cyan (#06b6d4) for 3D depth */}
+        {/* Bottom portion - darker cyan for 3D folded effect */}
         <path
-          d={`M0 ${iconSize * 0.18} 
-              L${iconSize * 0.35} ${iconSize * 0.5} 
+          d={`M0 ${iconSize * 0.32} 
+              L${iconSize * 0.18} ${iconSize * 0.32}
+              L${iconSize * 0.42} ${iconSize * 0.5} 
               L${iconSize} ${iconSize * 0.5} 
-              L${iconSize * 0.35} ${iconSize} 
-              L0 ${iconSize} 
+              L${iconSize * 0.42} ${iconSize * 0.92} 
+              L0 ${iconSize * 0.92} 
               Z`}
           fill="#06b6d4"
         />
