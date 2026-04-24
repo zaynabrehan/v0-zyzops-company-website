@@ -41,9 +41,9 @@ export function ProcessSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 relative">
-          {/* Connection Line */}
-          <div className="hidden md:block absolute top-32 left-12 right-12 h-1 bg-gradient-to-r from-purple-500 via-cyan-400 to-purple-500 -z-10" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative">
+          {/* Connection Line - Desktop only */}
+          <div className="hidden md:block absolute top-32 left-12 right-12 h-1 bg-gradient-to-r from-pink-600 via-cyan-400 to-pink-600 -z-10" />
 
           {steps.map((step, index) => (
             <div
@@ -52,14 +52,14 @@ export function ProcessSection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Circle Background */}
-              <div className="bg-gradient-to-b from-purple-500/20 to-cyan-400/20 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-6 group hover:from-purple-500/40 hover:to-cyan-400/40 transition-all duration-300">
+              <div className="bg-gradient-to-b from-pink-600/20 to-cyan-400/20 rounded-full w-28 h-28 md:w-32 md:h-32 flex items-center justify-center mx-auto mb-6 group hover:from-pink-600/40 hover:to-cyan-400/40 transition-all duration-300">
                 <div className="text-cyan-400">{step.icon}</div>
               </div>
 
               {/* Step Number */}
               <div className="text-center mb-4">
-                <p className="text-4xl font-bold text-purple-400 mb-2">{step.number}</p>
-                <h3 className="text-xl font-bold text-white">{step.title}</h3>
+                <p className="text-3xl md:text-4xl font-bold text-pink-600 mb-2">{step.number}</p>
+                <h3 className="text-lg md:text-xl font-bold text-white">{step.title}</h3>
               </div>
 
               {/* Description */}

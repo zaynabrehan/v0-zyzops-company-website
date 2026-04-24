@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const socialLinks = [
   { icon: Facebook, href: '#', label: 'Facebook' },
@@ -11,37 +12,36 @@ const socialLinks = [
 const quickLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'Services', href: '/#services' },
-  { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },
 ];
 
 const serviceLinks = [
-  { label: 'Web Development', href: '#' },
-  { label: 'Cybersecurity', href: '#' },
-  { label: 'Graphic Design', href: '#' },
-  { label: 'Video Editing', href: '#' },
-  { label: 'SEO & Marketing', href: '#' },
-  { label: 'AI & ML', href: '#' },
+  { label: 'Web Development', href: '/services/web-development' },
+  { label: 'App Development', href: '/services/app-development' },
+  { label: 'Cybersecurity', href: '/services/cybersecurity' },
+  { label: 'Graphic Design', href: '/services/graphic-design' },
+  { label: 'SEO & Marketing', href: '/services/seo' },
+  { label: 'AI Chatbot', href: '/services/ai-chatbot' },
 ];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-t from-pink-500/5 to-transparent border-t border-cyan-500/20">
+    <footer className="bg-gradient-to-t from-pink-600/5 to-transparent border-t border-pink-600/20">
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
           {/* Brand */}
-          <div>
+          <div className="sm:col-span-2 md:col-span-1">
             <div className="mb-4">
               <Image
                 src="/techvix-logo.png"
                 alt="Techvix.org"
                 width={260}
                 height={75}
-                className="h-18 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
@@ -54,7 +54,7 @@ export function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="p-2 rounded-full bg-purple-500/20 text-purple-400 hover:bg-cyan-400/20 hover:text-cyan-400 transition-all"
+                    className="p-2 rounded-full bg-pink-600/20 text-pink-600 hover:bg-cyan-400/20 hover:text-cyan-400 transition-all"
                     aria-label={social.label}
                   >
                     <Icon size={20} />
@@ -70,12 +70,12 @@ export function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-white hover:text-cyan-400 transition-colors text-sm font-light"
+                    className="text-white hover:text-pink-600 transition-colors text-sm font-light"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -87,12 +87,12 @@ export function Footer() {
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-white hover:text-cyan-400 transition-colors text-sm font-light"
+                    className="text-white hover:text-pink-600 transition-colors text-sm font-light"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -104,13 +104,13 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <p className="text-gray-300 font-light">Email</p>
-                <a href="mailto:zaynabrehann@gmail.com" className="text-cyan-400 hover:text-cyan-300">
+                <a href="mailto:zaynabrehann@gmail.com" className="text-pink-600 hover:text-pink-400">
                   zaynabrehann@gmail.com
                 </a>
               </li>
               <li>
                 <p className="text-gray-300 font-light">WhatsApp</p>
-                <a href="https://wa.me/923245531819" className="text-cyan-400 hover:text-cyan-300">
+                <a href="https://wa.me/923245531819" className="text-pink-600 hover:text-pink-400">
                   03245531819
                 </a>
               </li>
@@ -123,18 +123,18 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-cyan-500/20 mb-8" />
+        <div className="border-t border-pink-600/20 mb-8" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 font-light">
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 font-light gap-4">
           <p>&copy; {currentYear} Techvix.org. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
+          <div className="flex gap-6">
+            <Link href="#" className="text-gray-300 hover:text-pink-600 transition-colors font-light">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
+            </Link>
+            <Link href="#" className="text-gray-300 hover:text-pink-600 transition-colors font-light">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

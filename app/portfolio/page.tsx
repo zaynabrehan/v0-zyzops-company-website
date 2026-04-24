@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { ParticleBackground } from '@/components/particle-background';
 import { Navbar } from '@/components/sections/navbar';
 import { PortfolioSection } from '@/components/sections/portfolio';
@@ -8,13 +9,19 @@ export const metadata = {
   description: 'Explore our portfolio of successful projects including web development, app development, and digital solutions.',
 };
 
+function PortfolioContent() {
+  return <PortfolioSection />;
+}
+
 export default function PortfolioPage() {
   return (
     <main className="w-full overflow-hidden">
       <ParticleBackground />
       <Navbar />
       <div className="pt-28">
-        <PortfolioSection />
+        <Suspense fallback={<div className="py-24 text-center text-white">Loading...</div>}>
+          <PortfolioContent />
+        </Suspense>
       </div>
       <Footer />
     </main>
