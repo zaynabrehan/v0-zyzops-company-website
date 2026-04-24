@@ -29,70 +29,53 @@ export function TechvixLogo({ className = '', size = 'md' }: TechvixLogoProps) {
       aria-label="Techvix logo"
     >
       <defs>
-        {/* Gradient for the arrow icon */}
-        <linearGradient id={`${uniqueId}-arrowGradient`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#06b6d4" />
-          <stop offset="50%" stopColor="#22d3ee" />
-          <stop offset="100%" stopColor="#67e8f9" />
+        {/* Gradient for the arrow icon - cyan/blue matching original */}
+        <linearGradient id={`${uniqueId}-arrowGradient`} x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#22d3ee" />
+          <stop offset="100%" stopColor="#06b6d4" />
         </linearGradient>
         
-        {/* Gradient for "Tech" text - now more visible with white/gray tones */}
-        <linearGradient id={`${uniqueId}-techGradient`} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#e2e8f0" />
-          <stop offset="100%" stopColor="#94a3b8" />
-        </linearGradient>
-        
-        {/* Gradient for "vix" text */}
+        {/* "vix" text gradient - bright cyan */}
         <linearGradient id={`${uniqueId}-vixGradient`} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#06b6d4" />
-          <stop offset="100%" stopColor="#22d3ee" />
+          <stop offset="0%" stopColor="#22d3ee" />
+          <stop offset="100%" stopColor="#06b6d4" />
         </linearGradient>
-
-        {/* Glow filter */}
-        <filter id={`${uniqueId}-glow`} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
       </defs>
 
-      {/* Arrow/Chevron Icon - positioned closer to text */}
-      <g transform={`translate(2, ${(height - iconSize) / 2})`} filter={`url(#${uniqueId}-glow)`}>
-        {/* Main arrow shape */}
+      {/* Arrow/Chevron Icon - exact match to original logo */}
+      <g transform={`translate(2, ${(height - iconSize) / 2})`}>
+        {/* Top part of arrow - lighter cyan */}
         <path
-          d={`M0 ${iconSize * 0.15} L${iconSize * 0.6} ${iconSize * 0.5} L0 ${iconSize * 0.85} L${iconSize * 0.18} ${iconSize * 0.5} Z`}
-          fill={`url(#${uniqueId}-arrowGradient)`}
+          d={`M0 ${iconSize * 0.12} L${iconSize * 0.65} ${iconSize * 0.5} L${iconSize * 0.2} ${iconSize * 0.5} L0 ${iconSize * 0.35} Z`}
+          fill="#22d3ee"
         />
-        {/* 3D effect - darker bottom part */}
+        {/* Bottom part of arrow - darker cyan for 3D effect */}
         <path
-          d={`M0 ${iconSize * 0.5} L${iconSize * 0.6} ${iconSize * 0.5} L0 ${iconSize * 0.85} Z`}
-          fill="#0891b2"
-          opacity="0.8"
+          d={`M0 ${iconSize * 0.35} L${iconSize * 0.2} ${iconSize * 0.5} L${iconSize * 0.65} ${iconSize * 0.5} L0 ${iconSize * 0.88} Z`}
+          fill="#06b6d4"
         />
       </g>
 
-      {/* "Tech" text - visible white/slate color */}
+      {/* "Tech" text - dark gray/slate as in original logo */}
       <text
-        x={iconSize + 6}
+        x={iconSize + 8}
         y={height / 2 + fontSize / 3}
         fontFamily="system-ui, -apple-system, sans-serif"
         fontSize={fontSize}
         fontWeight="700"
-        fill={`url(#${uniqueId}-techGradient)`}
+        fill="#475569"
       >
         Tech
       </text>
 
-      {/* "vix" text - cyan color */}
+      {/* "vix" text - bright cyan as in original logo */}
       <text
-        x={iconSize + 6 + fontSize * 2.35}
+        x={iconSize + 8 + fontSize * 2.35}
         y={height / 2 + fontSize / 3}
         fontFamily="system-ui, -apple-system, sans-serif"
         fontSize={fontSize}
         fontWeight="700"
-        fill={`url(#${uniqueId}-vixGradient)`}
+        fill="#22d3ee"
       >
         vix
       </text>
