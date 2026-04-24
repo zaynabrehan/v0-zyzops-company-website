@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Code, Shield, Palette, Video, Zap, Brain, Cpu, MessageSquare, Share2, TrendingUp, DollarSign, PenTool } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { TechvixLogo } from '@/components/techvix-logo';
 
 // Services data for dropdown
 const serviceCategories = [
@@ -76,16 +76,9 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - Using actual image file */}
+          {/* Logo - SVG with transparent background, matches navbar */}
           <Link href="/#home" className="flex items-center animate-fade-in-up">
-            <Image
-              src="/images/techvix-logo.jpeg"
-              alt="Techvix"
-              width={160}
-              height={44}
-              className={`transition-all duration-300 object-contain ${isScrolled ? 'h-8 w-auto' : 'h-10 w-auto'}`}
-              priority
-            />
+            <TechvixLogo size={isScrolled ? 'sm' : 'md'} className="transition-all duration-300" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -200,13 +193,7 @@ export function Navbar() {
           <div className="flex flex-col p-6">
             {/* Logo in mobile menu */}
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-purple-500/20">
-              <Image
-                src="/images/techvix-logo.jpeg"
-                alt="Techvix"
-                width={130}
-                height={36}
-                className="h-8 w-auto object-contain"
-              />
+              <TechvixLogo size="sm" />
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-2 text-cyan-100 hover:text-cyan-400 transition-colors"

@@ -6,16 +6,16 @@ interface TechvixLogoProps {
 }
 
 export function TechvixLogo({ className = '', size = 'md' }: TechvixLogoProps) {
-  // Compact sizing optimized for navbar - no excess whitespace
+  // Larger sizing for better visibility - width is wider, height stays compact for navbar
   const sizes = {
-    sm: { width: 130, height: 36, iconSize: 28, fontSize: 18 },
-    md: { width: 160, height: 44, iconSize: 34, fontSize: 22 },
-    lg: { width: 200, height: 54, iconSize: 42, fontSize: 28 },
-    xl: { width: 250, height: 68, iconSize: 52, fontSize: 34 },
+    sm: { width: 150, height: 32, iconSize: 26, fontSize: 20 },
+    md: { width: 180, height: 38, iconSize: 32, fontSize: 24 },
+    lg: { width: 220, height: 46, iconSize: 38, fontSize: 28 },
+    xl: { width: 280, height: 56, iconSize: 48, fontSize: 36 },
   };
 
   const { width, height, iconSize, fontSize } = sizes[size];
-  const uniqueId = `logo-${size}`;
+  const uniqueId = `logo-${size}-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
     <svg
@@ -28,54 +28,50 @@ export function TechvixLogo({ className = '', size = 'md' }: TechvixLogoProps) {
       role="img"
       aria-label="Techvix logo"
     >
-      <defs>
-        {/* Gradient for the arrow icon - cyan/blue matching original */}
-        <linearGradient id={`${uniqueId}-arrowGradient`} x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#22d3ee" />
-          <stop offset="100%" stopColor="#06b6d4" />
-        </linearGradient>
-        
-        {/* "vix" text gradient - bright cyan */}
-        <linearGradient id={`${uniqueId}-vixGradient`} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#22d3ee" />
-          <stop offset="100%" stopColor="#06b6d4" />
-        </linearGradient>
-      </defs>
-
-      {/* Arrow/Chevron Icon - exact match to original logo */}
-      <g transform={`translate(2, ${(height - iconSize) / 2})`}>
-        {/* Top part of arrow - lighter cyan */}
+      {/* No background - transparent */}
+      
+      {/* Arrow/Chevron Icon - exact match to original: cyan 3D chevron */}
+      <g transform={`translate(0, ${(height - iconSize) / 2})`}>
+        {/* Top part of arrow - lighter cyan (#22d3ee) */}
         <path
-          d={`M0 ${iconSize * 0.12} L${iconSize * 0.65} ${iconSize * 0.5} L${iconSize * 0.2} ${iconSize * 0.5} L0 ${iconSize * 0.35} Z`}
+          d={`M0 ${iconSize * 0.1} 
+              L${iconSize * 0.7} ${iconSize * 0.5} 
+              L${iconSize * 0.22} ${iconSize * 0.5} 
+              L0 ${iconSize * 0.32} Z`}
           fill="#22d3ee"
         />
-        {/* Bottom part of arrow - darker cyan for 3D effect */}
+        {/* Bottom part of arrow - darker cyan (#06b6d4) for 3D effect */}
         <path
-          d={`M0 ${iconSize * 0.35} L${iconSize * 0.2} ${iconSize * 0.5} L${iconSize * 0.65} ${iconSize * 0.5} L0 ${iconSize * 0.88} Z`}
+          d={`M0 ${iconSize * 0.32} 
+              L${iconSize * 0.22} ${iconSize * 0.5} 
+              L${iconSize * 0.7} ${iconSize * 0.5} 
+              L0 ${iconSize * 0.9} Z`}
           fill="#06b6d4"
         />
       </g>
 
-      {/* "Tech" text - dark gray/slate as in original logo */}
+      {/* "Tech" text - WHITE color as in original logo */}
       <text
-        x={iconSize + 8}
-        y={height / 2 + fontSize / 3}
-        fontFamily="system-ui, -apple-system, sans-serif"
+        x={iconSize + 6}
+        y={height / 2 + fontSize * 0.35}
+        fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         fontSize={fontSize}
         fontWeight="700"
-        fill="#475569"
+        fill="#FFFFFF"
+        letterSpacing="-0.5"
       >
         Tech
       </text>
 
-      {/* "vix" text - bright cyan as in original logo */}
+      {/* "vix" text - bright cyan (#22d3ee) as in original logo */}
       <text
-        x={iconSize + 8 + fontSize * 2.35}
-        y={height / 2 + fontSize / 3}
-        fontFamily="system-ui, -apple-system, sans-serif"
+        x={iconSize + 6 + fontSize * 2.45}
+        y={height / 2 + fontSize * 0.35}
+        fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
         fontSize={fontSize}
         fontWeight="700"
         fill="#22d3ee"
+        letterSpacing="-0.5"
       >
         vix
       </text>
