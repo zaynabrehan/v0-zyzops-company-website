@@ -9,7 +9,8 @@ const projects = [
   {
     id: 1,
     title: 'Jush Restaurant',
-    category: 'Web',
+    category: 'Web Development',
+    service: 'Web Development',
     image: '/portfolio-jush.jpg',
     tech: ['React', 'Node.js', 'MongoDB'],
     link: '#',
@@ -17,7 +18,8 @@ const projects = [
   {
     id: 2,
     title: 'E-Commerce Platform',
-    category: 'E-commerce',
+    category: 'Web Development',
+    service: 'Web Development',
     image: '/portfolio-ecommerce.jpg',
     tech: ['Next.js', 'Stripe', 'PostgreSQL'],
     link: '#',
@@ -25,7 +27,8 @@ const projects = [
   {
     id: 3,
     title: 'Software Company Website',
-    category: 'Web',
+    category: 'Web Development',
+    service: 'Web Development',
     image: '/portfolio-software.jpg',
     tech: ['Next.js', 'TypeScript', 'Tailwind'],
     link: '#',
@@ -33,14 +36,51 @@ const projects = [
   {
     id: 4,
     title: 'Restaurant Management System',
-    category: 'E-commerce',
+    category: 'App Development',
+    service: 'App Development',
     image: '/portfolio-restaurant.jpg',
     tech: ['React', 'Firebase', 'Material-UI'],
     link: '#',
   },
+  {
+    id: 5,
+    title: 'Social Media Campaign',
+    category: 'Social Media Marketing',
+    service: 'Social Media Marketing',
+    image: '/portfolio-jush.jpg',
+    tech: ['Content Strategy', 'Analytics', 'Branding'],
+    link: '#',
+  },
+  {
+    id: 6,
+    title: 'Brand Identity Design',
+    category: 'Graphic Design',
+    service: 'Graphic Design',
+    image: '/portfolio-software.jpg',
+    tech: ['Adobe XD', 'Illustration', 'Branding'],
+    link: '#',
+  },
+  {
+    id: 7,
+    title: 'AI Chatbot Integration',
+    category: 'AI Chatbot Integration',
+    service: 'AI Chatbot Integration',
+    image: '/portfolio-restaurant.jpg',
+    tech: ['AI', 'NLP', 'Python'],
+    link: '#',
+  },
+  {
+    id: 8,
+    title: 'SEO Optimization',
+    category: 'SEO',
+    service: 'SEO',
+    image: '/portfolio-ecommerce.jpg',
+    tech: ['SEO', 'Analytics', 'Optimization'],
+    link: '#',
+  },
 ];
 
-const categories = ['All', 'Web', 'Design', 'E-commerce'];
+const categories = ['All', 'Web Development', 'App Development', 'Graphic Design', 'Social Media Marketing', 'AI Chatbot Integration', 'SEO', 'Cybersecurity', 'Video Editing', 'Copywriting'];
 
 export function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -48,7 +88,7 @@ export function PortfolioSection() {
   const filteredProjects = 
     activeCategory === 'All'
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.service === activeCategory);
 
   return (
     <section id="portfolio" className="py-24 px-4">

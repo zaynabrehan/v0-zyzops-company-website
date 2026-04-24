@@ -34,6 +34,14 @@ export default function AdminDashboard() {
     fetchMessages();
   }, [router]);
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminEmail');
+    localStorage.removeItem('adminName');
+    localStorage.removeItem('userType');
+    router.push('/');
+  };
+
   const fetchMessages = async () => {
     try {
       const token = localStorage.getItem('adminToken');
