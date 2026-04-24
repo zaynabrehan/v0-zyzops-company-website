@@ -45,14 +45,14 @@ export default function ServicePage() {
         <div className="max-w-5xl mx-auto">
           <Link 
             href="/#services" 
-            className="inline-flex items-center gap-2 text-cyan-400 hover:text-pink-600 transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-cyan-400 hover:text-purple-400 transition-colors mb-8"
           >
             <ArrowLeft size={20} />
             Back to Services
           </Link>
           
           <div className="flex items-center gap-6 mb-8">
-            <div className="text-cyan-400 p-4 bg-pink-600/10 rounded-xl">
+            <div className="text-cyan-400 p-4 bg-purple-500/10 rounded-xl">
               {service.icon}
             </div>
             <div>
@@ -77,7 +77,7 @@ export default function ServicePage() {
               <h3 className="text-xl font-bold text-white mb-4">Technologies We Use</h3>
               <div className="flex flex-wrap gap-2 mb-8">
                 {service.technologies.map((tech, idx) => (
-                  <span key={idx} className="px-4 py-2 bg-pink-600/20 text-pink-400 rounded-full text-sm font-medium">
+                  <span key={idx} className="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-medium">
                     {tech}
                   </span>
                 ))}
@@ -104,7 +104,7 @@ export default function ServicePage() {
               <ul className="space-y-4">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-pink-600 mt-0.5 flex-shrink-0" size={20} />
+                    <CheckCircle2 className="text-cyan-400 mt-0.5 flex-shrink-0" size={20} />
                     <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}

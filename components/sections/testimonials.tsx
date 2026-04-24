@@ -19,7 +19,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-cyan-400/5 to-transparent">
+    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -34,13 +34,13 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <GlassmorphismCard
               key={index}
-              className="animate-fade-in-up border-cyan-400/30"
+              className="animate-fade-in-up border-purple-500/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={20} className="fill-cyan-400 text-cyan-400" />
+                  <Star key={i} size={20} className="fill-purple-400 text-purple-400" />
                 ))}
               </div>
 
@@ -50,7 +50,7 @@ export function TestimonialsSection() {
               </p>
 
               {/* Author */}
-              <div className="border-t border-cyan-400/20 pt-4">
+              <div className="border-t border-purple-500/20 pt-4">
                 <p className="font-semibold text-white">{testimonial.name}</p>
                 <p className="text-sm text-white font-light">{testimonial.role}</p>
               </div>

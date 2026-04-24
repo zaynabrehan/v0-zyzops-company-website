@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, MessageSquare, MapPin, ChevronDown, Check, X } from 'lucide-react';
+import { Mail, MessageSquare, MapPin, ChevronDown, Check } from 'lucide-react';
 import { GlowButton } from '../glow-button';
 import { GradientText } from '../gradient-text';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -113,7 +113,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">Email</h3>
-                <a href="mailto:zaynabrehann@gmail.com" className="text-gray-300 hover:text-pink-600 transition-colors font-light">
+                <a href="mailto:zaynabrehann@gmail.com" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
                   zaynabrehann@gmail.com
                 </a>
               </div>
@@ -125,7 +125,7 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-semibold text-white mb-1">WhatsApp</h3>
-                <a href="https://wa.me/923245531819" className="text-gray-300 hover:text-pink-600 transition-colors font-light">
+                <a href="https://wa.me/923245531819" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
                   03245531819
                 </a>
               </div>
@@ -142,7 +142,7 @@ export function ContactSection() {
             </div>
 
             {/* Quick CTA */}
-            <div className="pt-8 border-t border-pink-600/20">
+            <div className="pt-8 border-t border-purple-500/20">
               <a
                 href="https://wa.me/923245531819"
                 target="_blank"
@@ -178,7 +178,7 @@ export function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="John Doe"
                 />
               </div>
@@ -194,7 +194,7 @@ export function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -207,7 +207,7 @@ export function ContactSection() {
                 <button
                   type="button"
                   onClick={() => setIsServiceDialogOpen(true)}
-                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-left flex items-center justify-between focus:outline-none focus:border-cyan-400 transition-colors"
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-left flex items-center justify-between focus:outline-none focus:border-cyan-400 transition-colors"
                 >
                   <span className={selectedServices.length > 0 ? 'text-white' : 'text-gray-400'}>
                     {getSelectedServiceLabels()}
@@ -227,16 +227,16 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-white/5 border border-cyan-400/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button - Cyan to purple gradient */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-pink-600/30 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 bg-[length:200%_100%] animate-gradient-shift text-white font-semibold px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -247,7 +247,7 @@ export function ContactSection() {
 
       {/* Services Selection Dialog */}
       <Dialog open={isServiceDialogOpen} onOpenChange={setIsServiceDialogOpen}>
-        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto bg-[#0a1520]/95 backdrop-blur-xl border border-pink-600/30">
+        <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto bg-[#0a1520]/95 backdrop-blur-xl border border-purple-500/30">
           <div className="flex items-center justify-between mb-4">
             <div>
               <DialogTitle className="text-xl font-bold text-white">Select Services</DialogTitle>
@@ -263,14 +263,14 @@ export function ContactSection() {
                 onClick={() => toggleService(service.value)}
                 className={`w-full text-left p-4 rounded-lg border transition-all duration-200 ${
                   selectedServices.includes(service.value)
-                    ? 'bg-pink-600/20 border-pink-600 text-white'
-                    : 'bg-white/5 border-pink-600/30 text-gray-300 hover:bg-pink-600/10 hover:border-pink-600/50'
+                    ? 'bg-purple-500/20 border-purple-500 text-white'
+                    : 'bg-white/5 border-purple-500/30 text-gray-300 hover:bg-purple-500/10 hover:border-purple-500/50'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className={`mt-1 flex-shrink-0 w-5 h-5 rounded-md border-2 flex items-center justify-center transition-colors ${
                     selectedServices.includes(service.value)
-                      ? 'bg-pink-600 border-pink-600'
+                      ? 'bg-purple-500 border-purple-500'
                       : 'border-gray-500'
                   }`}>
                     {selectedServices.includes(service.value) && (
@@ -286,7 +286,7 @@ export function ContactSection() {
             ))}
           </div>
 
-          <div className="flex gap-3 mt-6 pt-4 border-t border-cyan-400/20">
+          <div className="flex gap-3 mt-6 pt-4 border-t border-purple-500/20">
             <button
               type="button"
               onClick={() => setSelectedServices([])}
@@ -297,7 +297,7 @@ export function ContactSection() {
             <button
               type="button"
               onClick={confirmServiceSelection}
-              className="flex-1 bg-gradient-to-r from-pink-600 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-pink-600/30 transition-all"
+              className="flex-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 bg-[length:200%_100%] animate-gradient-shift text-white font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all"
             >
               Confirm ({selectedServices.length})
             </button>

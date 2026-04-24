@@ -27,7 +27,7 @@ const features = [
 
 export function WhyUsSection() {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-cyan-400/5 to-transparent">
+    <section className="py-24 px-4 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -43,7 +43,7 @@ export function WhyUsSection() {
             <GlassmorphismCard
               key={index}
               icon={feature.icon}
-              className="animate-fade-in-up border-cyan-400/30"
+              className="animate-fade-in-up border-purple-500/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <h3 className="text-lg font-bold text-white mb-3">{feature.title}</h3>

@@ -26,14 +26,14 @@ export function AboutSection() {
 
             <div className="space-y-4">
               <div>
-                <h3 className="font-semibold text-cyan-400 mb-2">Our Mission</h3>
+                <h3 className="font-semibold text-purple-400 mb-2">Our Mission</h3>
                 <p className="text-white font-light">
                   To empower businesses by delivering cutting-edge digital solutions that drive growth and innovation.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-semibold text-cyan-400 mb-2">Our Vision</h3>
+                <h3 className="font-semibold text-purple-400 mb-2">Our Vision</h3>
                 <p className="text-white font-light">
                   To be the trusted partner for businesses seeking digital transformation and technological excellence.
                 </p>
@@ -43,7 +43,7 @@ export function AboutSection() {
 
           {/* Right Visual */}
           <div className="animate-fade-in-down">
-            <div className="glass rounded-xl p-6 md:p-8 border-cyan-400/30">
+            <div className="glass rounded-xl p-6 md:p-8 border-purple-500/30">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-6">Why We&apos;re Different</h3>
               <ul className="space-y-4">
                 {[

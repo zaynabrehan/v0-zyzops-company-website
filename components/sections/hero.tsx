@@ -16,8 +16,8 @@ export function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="animate-fade-in-up">
-            <div className="inline-block glass rounded-full px-4 py-2 mb-6 animate-slide-up border-cyan-400/50">
-              <p className="text-cyan-400 text-sm font-semibold">Welcome to Techvix.org</p>
+            <div className="inline-block glass rounded-full px-4 py-2 mb-6 animate-slide-up border-purple-500/50">
+              <p className="text-purple-400 text-sm font-semibold">Welcome to Techvix.org</p>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -42,10 +42,10 @@ export function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-cyan-400/30 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-purple-500/30 animate-slide-up" style={{ animationDelay: '0.4s' }}>
               {stats.map((stat, index) => (
                 <div key={stat.label} className="group" style={{ animation: `scale-in 0.6s ease-out ${0.5 + index * 0.1}s backwards` }}>
-                  <p className="text-xl md:text-2xl font-bold text-cyan-400 group-hover:text-pink-500 transition-colors">{stat.number}</p>
+                  <p className="text-xl md:text-2xl font-bold text-cyan-400 group-hover:text-purple-400 transition-colors">{stat.number}</p>
                   <p className="text-xs md:text-sm text-white group-hover:text-cyan-300 transition-colors">{stat.label}</p>
                 </div>
               ))}
@@ -56,16 +56,16 @@ export function HeroSection() {
           <div className="hidden md:flex items-center justify-center animate-slide-down">
             <div className="relative w-80 h-80">
               {/* Gradient circles with animations */}
-              <div className="absolute inset-0 bg-gradient-to-br from-pink-600/30 to-cyan-400/30 rounded-full blur-3xl animate-bounce-gentle glow-pink" />
-              <div className="absolute inset-8 bg-gradient-to-tr from-cyan-400/30 to-sky-500/30 rounded-full blur-2xl animate-pulse-soft glow-cyan" />
-              <div className="absolute inset-16 bg-gradient-to-b from-pink-600/20 to-transparent rounded-full blur-2xl animate-float" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-cyan-400/30 rounded-full blur-3xl animate-bounce-gentle glow-purple" />
+              <div className="absolute inset-8 bg-gradient-to-tr from-cyan-400/30 to-purple-500/30 rounded-full blur-2xl animate-pulse-soft glow-cyan" />
+              <div className="absolute inset-16 bg-gradient-to-b from-purple-600/20 to-transparent rounded-full blur-2xl animate-float" />
               
               {/* Center card */}
-              <div className="absolute inset-0 glass-accent rounded-2xl flex items-center justify-center flex-col gap-4 p-8 hover-glow-cyan border-pink-600/30">
-                <div className="text-pink-600 animate-float-rotate">
+              <div className="absolute inset-0 glass-accent rounded-2xl flex items-center justify-center flex-col gap-4 p-8 hover-glow-cyan border-purple-500/30">
+                <div className="text-cyan-400 animate-float-rotate">
                   <Check size={80} strokeWidth={1.5} />
                 </div>
-                <p className="text-center text-white font-semibold animate-neon-glow">Your Success is Our Mission</p>
+                <p className="text-center text-white font-semibold">Your Success is Our Mission</p>
               </div>
             </div>
           </div>
