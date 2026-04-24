@@ -32,15 +32,15 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-28">
           {/* Logo */}
           <a href="#home" className="flex items-center animate-fade-in-up">
             <Image
               src="/techvix-logo.png"
               alt="Techvix.org"
-              width={220}
-              height={60}
-              className="h-16 w-auto"
+              width={280}
+              height={80}
+              className="h-20 w-auto"
               priority
             />
           </a>

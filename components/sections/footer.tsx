@@ -39,9 +39,9 @@ export function Footer() {
               <Image
                 src="/techvix-logo.png"
                 alt="Techvix.org"
-                width={180}
-                height={50}
-                className="h-14 w-auto"
+                width={220}
+                height={65}
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
