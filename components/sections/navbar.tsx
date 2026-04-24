@@ -76,14 +76,14 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - Using actual image with mix-blend-mode to remove black background */}
+          {/* Logo - Using actual image with mix-blend-lighten to remove black background */}
           <Link href="/#home" className="flex items-center animate-fade-in-up">
             <Image
               src="/images/techvix-logo-dark.jpeg"
               alt="Techvix"
               width={180}
               height={50}
-              className={`transition-all duration-300 mix-blend-screen ${isScrolled ? 'h-9 w-auto' : 'h-10 w-auto'}`}
+              className={`transition-all duration-300 mix-blend-lighten ${isScrolled ? 'h-9 w-auto' : 'h-10 w-auto'}`}
               priority
             />
           </Link>
@@ -205,7 +205,7 @@ export function Navbar() {
                 alt="Techvix"
                 width={150}
                 height={40}
-                className="h-9 w-auto mix-blend-screen"
+                className="h-9 w-auto mix-blend-lighten"
               />
               <button
                 onClick={() => setIsOpen(false)}
