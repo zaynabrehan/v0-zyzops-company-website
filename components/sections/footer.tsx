@@ -33,15 +33,15 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
-          {/* Brand - Bigger Logo */}
+          {/* Brand - Properly sized Logo */}
           <div className="sm:col-span-2 md:col-span-1">
             <div className="mb-4">
               <Image
-                src="/techvix-logo.png"
+                src="/images/techvix-logo.png"
                 alt="Techvix.org"
-                width={400}
-                height={120}
-                className="h-24 w-auto"
+                width={180}
+                height={45}
+                className="h-12 w-auto object-contain"
               />
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">

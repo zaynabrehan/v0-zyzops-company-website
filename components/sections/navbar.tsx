@@ -76,14 +76,15 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo - Bigger size */}
+          {/* Logo - Properly sized with cropped whitespace */}
           <Link href="/#home" className="flex items-center animate-fade-in-up">
             <Image
-              src="/techvix-logo.png"
+              src="/images/techvix-logo.png"
               alt="Techvix.org"
-              width={500}
-              height={140}
-              className={`transition-all duration-300 ${isScrolled ? 'h-20 w-auto' : 'h-28 w-auto'}`}
+              width={180}
+              height={45}
+              className={`transition-all duration-300 object-contain ${isScrolled ? 'h-10' : 'h-12'}`}
+              style={{ objectPosition: 'left center' }}
               priority
             />
           </Link>
@@ -201,11 +202,11 @@ export function Navbar() {
             {/* Logo in mobile menu */}
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-purple-500/20">
               <Image
-                src="/techvix-logo.png"
+                src="/images/techvix-logo.png"
                 alt="Techvix.org"
-                width={280}
-                height={80}
-                className="h-16 w-auto"
+                width={160}
+                height={40}
+                className="h-10 w-auto object-contain"
               />
               <button
                 onClick={() => setIsOpen(false)}
