@@ -6,13 +6,13 @@ const testimonials = [
   {
     name: 'Sarah Johnson',
     role: 'CEO, Tech Startup',
-    message: 'Zyzops transformed our digital presence. Their team delivered beyond expectations with innovative solutions and exceptional support.',
+    message: 'Techvix.org transformed our digital presence. Their team delivered beyond expectations with innovative solutions and exceptional support.',
     rating: 5,
   },
   {
     name: 'Michael Chen',
     role: 'Marketing Director, E-Commerce',
-    message: 'Working with Zyzops was a game-changer. They understood our needs perfectly and delivered a solution that increased our conversions by 40%.',
+    message: 'Working with Techvix.org was a game-changer. They understood our needs perfectly and delivered a solution that increased our conversions by 40%.',
     rating: 5,
   },
 ];

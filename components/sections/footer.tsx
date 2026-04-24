@@ -36,7 +36,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="text-2xl font-bold mb-4">
-              <span className="gradient-text">ZYZOPS</span>
+              <span className="gradient-text">Techvix.org</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed font-light">
               Transforming businesses through innovative digital solutions and cutting-edge technology.
@@ -121,7 +121,7 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 font-light">
-          <p>&copy; {currentYear} Zyzops. All rights reserved.</p>
+          <p>&copy; {currentYear} Techvix.org. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-300 hover:text-cyan-400 transition-colors font-light">
               Privacy Policy

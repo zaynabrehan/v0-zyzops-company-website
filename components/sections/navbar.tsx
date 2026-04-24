@@ -35,7 +35,7 @@ export function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="text-2xl font-bold animate-fade-in-up text-white">
-            <span className="gradient-text animate-neon-glow">ZYZOPS</span>
+            <span className="gradient-text animate-neon-glow">Techvix.org</span>
           </div>
 
           {/* Desktop Navigation */}

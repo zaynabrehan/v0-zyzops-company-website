@@ -6,7 +6,7 @@ export function AboutSection() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <GradientText>Zyzops</GradientText>
+            About <GradientText>Techvix.org</GradientText>
           </h2>
           <p className="text-white text-lg font-light">
             Delivering Digital Excellence Since Day One
@@ -17,7 +17,7 @@ export function AboutSection() {
           {/* Left Content */}
           <div className="animate-fade-in-up">
             <p className="text-white leading-relaxed mb-6 font-light">
-              Zyzops is a forward-thinking digital solutions company dedicated to transforming businesses through innovative technology. Our team of skilled professionals brings years of experience in web development, cybersecurity, design, and artificial intelligence.
+              Techvix.org is a forward-thinking digital solutions company dedicated to transforming businesses through innovative technology. Our team of skilled professionals brings years of experience in web development, cybersecurity, design, and artificial intelligence.
             </p>
 
             <p className="text-white leading-relaxed mb-6 font-light">

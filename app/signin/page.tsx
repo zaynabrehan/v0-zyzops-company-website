@@ -113,7 +113,7 @@ export default function SignInPage() {
             <p className="text-xs text-gray-400 mb-4">Demo Credentials:</p>
             <div className="space-y-2 text-xs text-gray-300">
               <p><span className="text-cyan-400">Email:</span> zaynabrehann@gmail.com</p>
-              <p><span className="text-cyan-400">Email:</span> admin@zyzops.com</p>
+              <p><span className="text-cyan-400">Email:</span> admin@techvix.org</p>
               <p><span className="text-cyan-400">Password:</span> admin123</p>
             </div>
           </div>

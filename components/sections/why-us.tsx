@@ -31,7 +31,7 @@ export function WhyUsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Choose <GradientText>Zyzops</GradientText>
+            Why Choose <GradientText>Techvix.org</GradientText>
           </h2>
           <p className="text-white text-lg max-w-2xl mx-auto font-light">
             Partner with us for digital transformation that drives real results

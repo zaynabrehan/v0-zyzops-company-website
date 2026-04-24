@@ -16,7 +16,7 @@ export function HeroSection() {
           {/* Left Content */}
           <div className="animate-fade-in-up">
             <div className="inline-block glass rounded-full px-4 py-2 mb-6 animate-slide-up glow-cyan border-cyan-400/50">
-              <p className="text-cyan-400 text-sm font-semibold animate-neon-glow">Welcome to Zyzops</p>
+              <p className="text-cyan-400 text-sm font-semibold animate-neon-glow">Welcome to Techvix.org</p>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
