@@ -38,9 +38,9 @@ export function Navbar() {
             <Image
               src="/techvix-logo.png"
               alt="Techvix.org"
-              width={150}
-              height={40}
-              className="h-10 w-auto"
+              width={180}
+              height={50}
+              className="h-14 w-auto"
               priority
             />
           </a>
