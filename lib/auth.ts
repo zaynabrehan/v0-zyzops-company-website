@@ -1,20 +1,17 @@
-import { cookies } from 'next/headers';
 import { createClient } from '@/lib/supabase/server';
 import { SUPER_ADMIN_EMAIL, type AuthenticatedUser, type UserRole } from '@/lib/types';
 
-const ADMIN_EMAIL_COOKIE = 'admin_email';
-
 export async function getAuthenticatedUser(): Promise<AuthenticatedUser | null> {
-  const cookieStore = await cookies();
-  const adminEmail = cookieStore.get(ADMIN_EMAIL_COOKIE)?.value;
-
-  if (!adminEmail) {
+  const supabase = await createClient();
+  
+  const { data: { user }, error } = await supabase.auth.getUser();
+  
+  if (error || !user?.email) {
     return null;
   }
 
-  const email = adminEmail.toLowerCase();
-  const supabase = await createClient();
-
+  const email = user.email.toLowerCase();
+  
   // Check if super admin
   if (email === SUPER_ADMIN_EMAIL.toLowerCase()) {
     return {
@@ -39,8 +36,11 @@ export async function getAuthenticatedUser(): Promise<AuthenticatedUser | null> 
     };
   }
 
-  // Email is not authorized
-  return null;
+  // User is authenticated but not authorized as admin
+  return {
+    email,
+    role: 'unauthorized',
+  };
 }
 
 export function isSuperAdmin(email: string): boolean {

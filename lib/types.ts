@@ -1,7 +1,7 @@
 // Techvix Admin Dashboard Types
 
 // Super Admin is hardcoded - this email has full access
-export const SUPER_ADMIN_EMAIL = 'zaynabrehann@gmail.com';
+export const SUPER_ADMIN_EMAIL = 'zaynabrehan@gmail.com';
 
 export interface Admin {
   id: string;
