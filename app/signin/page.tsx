@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { LogIn, UserPlus } from 'lucide-react';
@@ -15,24 +15,31 @@ export default function SignInPage() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  // Check if already logged in
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        router.push('/');
+      }
+    };
+    checkSession();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setSuccess('');
     setIsLoading(true);
 
     try {
       if (isSignUp) {
-        // Sign up new user
+        // Sign up - Supabase will auto-confirm since we disable email confirmation
         const { data, error: signUpError } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
-              `${window.location.origin}/auth/callback`,
             data: {
               name: name,
             },
@@ -41,25 +48,31 @@ export default function SignInPage() {
 
         if (signUpError) {
           setError(signUpError.message);
+          setIsLoading(false);
           return;
         }
 
-        // Check if email confirmation is needed
-        if (data.user && !data.session) {
-          setSuccess('Please check your email to confirm your account.');
-          return;
-        }
-
-        // If session exists, add to clients table
-        if (data.session && data.user) {
+        // Add to clients table
+        if (data.user) {
           await supabase.from('clients').upsert({
             user_id: data.user.id,
-            email: data.user.email,
+            email: email,
             name: name || null,
             last_signin_at: new Date().toISOString(),
           }, { onConflict: 'email' });
 
-          router.push('/');
+          // Check if this user is an admin
+          const { data: adminData } = await supabase
+            .from('admins')
+            .select('*')
+            .eq('email', email.toLowerCase())
+            .single();
+
+          if (adminData) {
+            router.push('/admin/dashboard');
+          } else {
+            router.push('/');
+          }
           router.refresh();
         }
       } else {
@@ -71,6 +84,7 @@ export default function SignInPage() {
 
         if (signInError) {
           setError(signInError.message);
+          setIsLoading(false);
           return;
         }
 
@@ -78,15 +92,8 @@ export default function SignInPage() {
         const { data: adminData } = await supabase
           .from('admins')
           .select('*')
-          .eq('email', email)
+          .eq('email', email.toLowerCase())
           .single();
-
-        if (adminData) {
-          // Redirect admin to admin dashboard
-          router.push('/admin/dashboard');
-          router.refresh();
-          return;
-        }
 
         // Update client last signin time
         if (data.user) {
@@ -98,7 +105,11 @@ export default function SignInPage() {
           }, { onConflict: 'email' });
         }
 
-        router.push('/');
+        if (adminData) {
+          router.push('/admin/dashboard');
+        } else {
+          router.push('/');
+        }
         router.refresh();
       }
     } catch (err) {
@@ -141,7 +152,6 @@ export default function SignInPage() {
               onClick={() => {
                 setIsSignUp(false);
                 setError('');
-                setSuccess('');
               }}
               className={`flex-1 py-2 rounded-md transition-colors text-sm font-medium ${
                 !isSignUp
@@ -156,7 +166,6 @@ export default function SignInPage() {
               onClick={() => {
                 setIsSignUp(true);
                 setError('');
-                setSuccess('');
               }}
               className={`flex-1 py-2 rounded-md transition-colors text-sm font-medium ${
                 isSignUp
@@ -174,13 +183,6 @@ export default function SignInPage() {
             {error && (
               <div className="bg-red-500/20 border border-red-500/50 text-red-300 p-4 rounded-lg text-sm">
                 {error}
-              </div>
-            )}
-
-            {/* Success Message */}
-            {success && (
-              <div className="bg-green-500/20 border border-green-500/50 text-green-300 p-4 rounded-lg text-sm">
-                {success}
               </div>
             )}
 
