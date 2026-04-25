@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
 import { GlowButton } from '@/components/glow-button';
-import { GradientText } from '@/components/gradient-text';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -11,6 +11,7 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,21 +19,28 @@ export default function AdminLogin() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      // Check if user is an admin with matching password
+      const { data: adminData, error: adminError } = await supabase
+        .from('admins')
+        .select('*')
+        .eq('email', email.toLowerCase())
+        .eq('password', password)
+        .single();
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.message || 'Login failed');
+      if (adminError || !adminData) {
+        setError('Invalid email or password.');
+        setIsLoading(false);
         return;
       }
 
-      // Store token in localStorage
-      localStorage.setItem('adminToken', data.token);
+      // Store admin session in localStorage
+      localStorage.setItem('admin_session', JSON.stringify({
+        id: adminData.id,
+        email: adminData.email,
+        name: adminData.name,
+        is_super_admin: adminData.is_super_admin,
+      }));
+
       router.push('/admin/dashboard');
     } catch (err) {
       setError('An error occurred. Please try again.');
@@ -49,7 +57,7 @@ export default function AdminLogin() {
             <span className="gradient-text">Techvix.org</span>
           </h1>
           <h2 className="text-2xl font-bold text-white mb-2">Admin Login</h2>
-          <p className="text-gray-300">Sign in to manage messages</p>
+          <p className="text-gray-300">Sign in with your admin credentials</p>
         </div>
 
         <div className="glass rounded-xl p-8">
@@ -70,7 +78,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
-                placeholder="admin@techvix.org"
+                placeholder="admin@example.com"
               />
             </div>
 
@@ -98,7 +106,7 @@ export default function AdminLogin() {
           </form>
 
           <p className="text-center text-sm text-gray-400 mt-6">
-            Default credentials: admin@techvix.org / admin123
+            Admin access only. Contact the super admin if you need access.
           </p>
         </div>
       </div>
