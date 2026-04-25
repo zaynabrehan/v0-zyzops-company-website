@@ -22,6 +22,7 @@ interface Admin {
   name: string;
   is_super_admin: boolean;
   created_at: string;
+  password?: string;
 }
 
 interface Client {
@@ -45,6 +46,7 @@ export default function AdminDashboard() {
   const [showAddAdmin, setShowAddAdmin] = useState(false);
   const [newAdminEmail, setNewAdminEmail] = useState('');
   const [newAdminName, setNewAdminName] = useState('');
+  const [newAdminPassword, setNewAdminPassword] = useState('');
   const [addingAdmin, setAddingAdmin] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
@@ -55,28 +57,36 @@ export default function AdminDashboard() {
   }, []);
 
   const checkAuth = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
+    // Check localStorage for admin session
+    const sessionStr = localStorage.getItem('admin_session');
     
-    if (!user) {
+    if (!sessionStr) {
       router.push('/admin/login');
       return;
     }
 
-    // Check if user is an admin
-    const { data: adminData, error: adminError } = await supabase
-      .from('admins')
-      .select('*')
-      .eq('email', user.email)
-      .single();
+    try {
+      const session = JSON.parse(sessionStr);
+      
+      // Verify session is still valid by checking database
+      const { data: adminData, error: adminError } = await supabase
+        .from('admins')
+        .select('*')
+        .eq('id', session.id)
+        .single();
 
-    if (adminError || !adminData) {
-      await supabase.auth.signOut();
+      if (adminError || !adminData) {
+        localStorage.removeItem('admin_session');
+        router.push('/admin/login');
+        return;
+      }
+
+      setCurrentUser(adminData);
+      fetchAllData();
+    } catch {
+      localStorage.removeItem('admin_session');
       router.push('/admin/login');
-      return;
     }
-
-    setCurrentUser(adminData);
-    fetchAllData();
   };
 
   const fetchAllData = async () => {
@@ -103,7 +113,7 @@ export default function AdminDashboard() {
   const fetchAdmins = async () => {
     const { data, error } = await supabase
       .from('admins')
-      .select('*')
+      .select('id, email, name, is_super_admin, created_at')
       .order('created_at', { ascending: true });
 
     if (!error && data) {
@@ -122,8 +132,8 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
+  const handleLogout = () => {
+    localStorage.removeItem('admin_session');
     router.push('/admin/login');
   };
 
@@ -168,6 +178,12 @@ export default function AdminDashboard() {
       return;
     }
 
+    if (!newAdminPassword.trim()) {
+      setError('Password is required');
+      setAddingAdmin(false);
+      return;
+    }
+
     // Check if already an admin
     const exists = admins.some(a => a.email.toLowerCase() === newAdminEmail.toLowerCase());
     if (exists) {
@@ -181,16 +197,18 @@ export default function AdminDashboard() {
       .insert({
         email: newAdminEmail.toLowerCase(),
         name: newAdminName || null,
+        password: newAdminPassword,
         is_super_admin: false,
         created_by: currentUser?.id,
       });
 
     if (error) {
-      setError('Failed to add admin. Make sure you are a super admin.');
+      setError('Failed to add admin.');
     } else {
       setShowAddAdmin(false);
       setNewAdminEmail('');
       setNewAdminName('');
+      setNewAdminPassword('');
       fetchAdmins();
     }
     setAddingAdmin(false);
@@ -464,9 +482,6 @@ export default function AdminDashboard() {
                             className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                             placeholder="admin@example.com"
                           />
-                          <p className="text-xs text-gray-400 mt-1">
-                            This person must sign up with this exact email to get admin access.
-                          </p>
                         </div>
 
                         <div>
@@ -479,6 +494,20 @@ export default function AdminDashboard() {
                             onChange={(e) => setNewAdminName(e.target.value)}
                             className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
                             placeholder="John Doe"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-white mb-2">
+                            Password *
+                          </label>
+                          <input
+                            type="password"
+                            value={newAdminPassword}
+                            onChange={(e) => setNewAdminPassword(e.target.value)}
+                            required
+                            className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
+                            placeholder="••••••••"
                           />
                         </div>
 
@@ -526,11 +555,10 @@ export default function AdminDashboard() {
                           </div>
                           <p className="text-sm text-gray-400">{admin.email}</p>
                           <p className="text-xs text-gray-500">
-                            Added: {new Date(admin.created_at).toLocaleDateString()}
+                            Added {new Date(admin.created_at).toLocaleDateString()}
                           </p>
                         </div>
                       </div>
-
                       {currentUser?.is_super_admin && !admin.is_super_admin && (
                         <button
                           onClick={() => handleRemoveAdmin(admin)}
@@ -543,12 +571,6 @@ export default function AdminDashboard() {
                     </div>
                   ))}
                 </div>
-
-                {!currentUser?.is_super_admin && (
-                  <p className="text-sm text-gray-400 mt-4 text-center">
-                    Only super admins can add or remove other admins.
-                  </p>
-                )}
               </div>
             )}
 
@@ -560,28 +582,29 @@ export default function AdminDashboard() {
                 {clients.length === 0 ? (
                   <div className="text-center py-12">
                     <Users size={48} className="mx-auto text-gray-400 mb-4" />
-                    <p className="text-gray-300">No clients have signed in yet</p>
+                    <p className="text-gray-300">No clients have signed up yet</p>
                   </div>
                 ) : (
                   <div className="overflow-x-auto">
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-purple-500/30">
-                          <th className="text-left text-sm text-gray-400 font-medium py-3 px-4">Name</th>
-                          <th className="text-left text-sm text-gray-400 font-medium py-3 px-4">Email</th>
-                          <th className="text-left text-sm text-gray-400 font-medium py-3 px-4">Signed Up</th>
-                          <th className="text-left text-sm text-gray-400 font-medium py-3 px-4">Last Active</th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">Name</th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">Email</th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">Registered</th>
+                          <th className="text-left py-3 px-4 text-gray-400 font-medium">Last Signin</th>
                         </tr>
                       </thead>
                       <tbody>
                         {clients.map((client) => (
-                          <tr key={client.id} className="border-b border-purple-500/10 hover:bg-white/5">
+                          <tr
+                            key={client.id}
+                            className="border-b border-purple-500/10 hover:bg-white/5"
+                          >
                             <td className="py-3 px-4">
                               <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-full bg-cyan-500/30 flex items-center justify-center">
-                                  <span className="text-sm text-cyan-300">
-                                    {(client.name || client.email).charAt(0).toUpperCase()}
-                                  </span>
+                                <div className="w-10 h-10 rounded-full bg-cyan-500/30 flex items-center justify-center">
+                                  <Users size={18} className="text-cyan-300" />
                                 </div>
                                 <span className="text-white">{client.name || 'N/A'}</span>
                               </div>

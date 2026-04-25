@@ -19,33 +19,29 @@ export default function AdminLogin() {
     setIsLoading(true);
 
     try {
-      // Sign in with Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (authError) {
-        setError(authError.message);
-        return;
-      }
-
-      // Check if user is an admin
+      // Check if user is an admin with matching password
       const { data: adminData, error: adminError } = await supabase
         .from('admins')
         .select('*')
-        .eq('email', email)
+        .eq('email', email.toLowerCase())
+        .eq('password', password)
         .single();
 
       if (adminError || !adminData) {
-        // Sign out if not an admin
-        await supabase.auth.signOut();
-        setError('You are not authorized as an admin.');
+        setError('Invalid email or password.');
+        setIsLoading(false);
         return;
       }
 
+      // Store admin session in localStorage
+      localStorage.setItem('admin_session', JSON.stringify({
+        id: adminData.id,
+        email: adminData.email,
+        name: adminData.name,
+        is_super_admin: adminData.is_super_admin,
+      }));
+
       router.push('/admin/dashboard');
-      router.refresh();
     } catch (err) {
       setError('An error occurred. Please try again.');
     } finally {

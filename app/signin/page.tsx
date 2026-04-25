@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { LogIn, UserPlus } from 'lucide-react';
@@ -15,102 +15,113 @@ export default function SignInPage() {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  // Check if already logged in
-  useEffect(() => {
-    const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        router.push('/');
-      }
-    };
-    checkSession();
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     setIsLoading(true);
 
     try {
       if (isSignUp) {
-        // Sign up - Supabase will auto-confirm since we disable email confirmation
-        const { data, error: signUpError } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            data: {
-              name: name,
-            },
-          },
-        });
+        // Check if email already exists
+        const { data: existingClient } = await supabase
+          .from('clients')
+          .select('id')
+          .eq('email', email.toLowerCase())
+          .single();
 
-        if (signUpError) {
-          setError(signUpError.message);
+        if (existingClient) {
+          setError('An account with this email already exists. Please sign in.');
           setIsLoading(false);
           return;
         }
 
-        // Add to clients table
-        if (data.user) {
-          await supabase.from('clients').upsert({
-            user_id: data.user.id,
-            email: email,
+        // Create new client
+        const { data: newClient, error: insertError } = await supabase
+          .from('clients')
+          .insert({
+            email: email.toLowerCase(),
             name: name || null,
+            password: password,
             last_signin_at: new Date().toISOString(),
-          }, { onConflict: 'email' });
+          })
+          .select()
+          .single();
 
-          // Check if this user is an admin
-          const { data: adminData } = await supabase
-            .from('admins')
-            .select('*')
-            .eq('email', email.toLowerCase())
-            .single();
-
-          if (adminData) {
-            router.push('/admin/dashboard');
-          } else {
-            router.push('/');
-          }
-          router.refresh();
-        }
-      } else {
-        // Sign in existing user
-        const { data, error: signInError } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-
-        if (signInError) {
-          setError(signInError.message);
+        if (insertError) {
+          setError('Failed to create account. Please try again.');
           setIsLoading(false);
           return;
         }
 
-        // Check if user is an admin
+        // Store client session in localStorage
+        localStorage.setItem('client_session', JSON.stringify({
+          id: newClient.id,
+          email: newClient.email,
+          name: newClient.name,
+        }));
+
+        // Check if this user is also an admin
         const { data: adminData } = await supabase
           .from('admins')
           .select('*')
           .eq('email', email.toLowerCase())
           .single();
 
-        // Update client last signin time
-        if (data.user) {
-          await supabase.from('clients').upsert({
-            user_id: data.user.id,
-            email: data.user.email,
-            name: data.user.user_metadata?.name || null,
-            last_signin_at: new Date().toISOString(),
-          }, { onConflict: 'email' });
+        setSuccess('Account created successfully! Redirecting...');
+        setTimeout(() => {
+          if (adminData) {
+            router.push('/admin/dashboard');
+          } else {
+            router.push('/');
+          }
+        }, 1500);
+      } else {
+        // Sign in existing user - check password in database
+        const { data: clientData, error: clientError } = await supabase
+          .from('clients')
+          .select('*')
+          .eq('email', email.toLowerCase())
+          .eq('password', password)
+          .single();
+
+        if (clientError || !clientData) {
+          setError('Invalid email or password.');
+          setIsLoading(false);
+          return;
         }
 
-        if (adminData) {
-          router.push('/admin/dashboard');
-        } else {
-          router.push('/');
-        }
-        router.refresh();
+        // Update last signin time
+        await supabase
+          .from('clients')
+          .update({ last_signin_at: new Date().toISOString() })
+          .eq('id', clientData.id);
+
+        // Store client session in localStorage
+        localStorage.setItem('client_session', JSON.stringify({
+          id: clientData.id,
+          email: clientData.email,
+          name: clientData.name,
+        }));
+
+        // Check if user is also an admin
+        const { data: adminData } = await supabase
+          .from('admins')
+          .select('*')
+          .eq('email', email.toLowerCase())
+          .single();
+
+        setSuccess('Signed in successfully! Redirecting...');
+        setTimeout(() => {
+          if (adminData) {
+            router.push('/admin/dashboard');
+          } else {
+            router.push('/');
+          }
+        }, 1500);
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
@@ -152,6 +163,7 @@ export default function SignInPage() {
               onClick={() => {
                 setIsSignUp(false);
                 setError('');
+                setSuccess('');
               }}
               className={`flex-1 py-2 rounded-md transition-colors text-sm font-medium ${
                 !isSignUp
@@ -166,6 +178,7 @@ export default function SignInPage() {
               onClick={() => {
                 setIsSignUp(true);
                 setError('');
+                setSuccess('');
               }}
               className={`flex-1 py-2 rounded-md transition-colors text-sm font-medium ${
                 isSignUp
@@ -183,6 +196,13 @@ export default function SignInPage() {
             {error && (
               <div className="bg-red-500/20 border border-red-500/50 text-red-300 p-4 rounded-lg text-sm">
                 {error}
+              </div>
+            )}
+
+            {/* Success Message */}
+            {success && (
+              <div className="bg-green-500/20 border border-green-500/50 text-green-300 p-4 rounded-lg text-sm">
+                {success}
               </div>
             )}
 
