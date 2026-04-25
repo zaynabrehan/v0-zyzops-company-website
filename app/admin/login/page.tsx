@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { createClient } from '@/lib/supabase/client';
 import { GlowButton } from '@/components/glow-button';
-import { GradientText } from '@/components/gradient-text';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -11,6 +11,7 @@ export default function AdminLogin() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,22 +19,33 @@ export default function AdminLogin() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+      // Sign in with Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.message || 'Login failed');
+      if (authError) {
+        setError(authError.message);
         return;
       }
 
-      // Store token in localStorage
-      localStorage.setItem('adminToken', data.token);
+      // Check if user is an admin
+      const { data: adminData, error: adminError } = await supabase
+        .from('admins')
+        .select('*')
+        .eq('email', email)
+        .single();
+
+      if (adminError || !adminData) {
+        // Sign out if not an admin
+        await supabase.auth.signOut();
+        setError('You are not authorized as an admin.');
+        return;
+      }
+
       router.push('/admin/dashboard');
+      router.refresh();
     } catch (err) {
       setError('An error occurred. Please try again.');
     } finally {
@@ -49,7 +61,7 @@ export default function AdminLogin() {
             <span className="gradient-text">Techvix.org</span>
           </h1>
           <h2 className="text-2xl font-bold text-white mb-2">Admin Login</h2>
-          <p className="text-gray-300">Sign in to manage messages</p>
+          <p className="text-gray-300">Sign in with your admin credentials</p>
         </div>
 
         <div className="glass rounded-xl p-8">
@@ -70,7 +82,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors"
-                placeholder="admin@techvix.org"
+                placeholder="admin@example.com"
               />
             </div>
 
@@ -98,7 +110,7 @@ export default function AdminLogin() {
           </form>
 
           <p className="text-center text-sm text-gray-400 mt-6">
-            Default credentials: admin@techvix.org / admin123
+            Admin access only. Contact the super admin if you need access.
           </p>
         </div>
       </div>

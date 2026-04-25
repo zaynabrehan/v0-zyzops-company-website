@@ -3,41 +3,106 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { LogIn } from 'lucide-react';
+import { LogIn, UserPlus } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 import { ParticleBackground } from '@/components/particle-background';
 
 export default function SignInPage() {
   const router = useRouter();
+  const supabase = createClient();
+  const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setSuccess('');
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      if (isSignUp) {
+        // Sign up new user
+        const { data, error: signUpError } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
+              `${window.location.origin}/auth/callback`,
+            data: {
+              name: name,
+            },
+          },
+        });
 
-      const data = await response.json();
+        if (signUpError) {
+          setError(signUpError.message);
+          return;
+        }
 
-      if (response.ok) {
-        localStorage.setItem('adminToken', data.token);
-        localStorage.setItem('adminEmail', data.email);
-        localStorage.setItem('adminName', data.name);
-        router.push('/admin/dashboard');
+        // Check if email confirmation is needed
+        if (data.user && !data.session) {
+          setSuccess('Please check your email to confirm your account.');
+          return;
+        }
+
+        // If session exists, add to clients table
+        if (data.session && data.user) {
+          await supabase.from('clients').upsert({
+            user_id: data.user.id,
+            email: data.user.email,
+            name: name || null,
+            last_signin_at: new Date().toISOString(),
+          }, { onConflict: 'email' });
+
+          router.push('/');
+          router.refresh();
+        }
       } else {
-        setError(data.message || 'Login failed');
+        // Sign in existing user
+        const { data, error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (signInError) {
+          setError(signInError.message);
+          return;
+        }
+
+        // Check if user is an admin
+        const { data: adminData } = await supabase
+          .from('admins')
+          .select('*')
+          .eq('email', email)
+          .single();
+
+        if (adminData) {
+          // Redirect admin to admin dashboard
+          router.push('/admin/dashboard');
+          router.refresh();
+          return;
+        }
+
+        // Update client last signin time
+        if (data.user) {
+          await supabase.from('clients').upsert({
+            user_id: data.user.id,
+            email: data.user.email,
+            name: data.user.user_metadata?.name || null,
+            last_signin_at: new Date().toISOString(),
+          }, { onConflict: 'email' });
+        }
+
+        router.push('/');
+        router.refresh();
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
-      console.error('Login error:', err);
     } finally {
       setIsLoading(false);
     }
@@ -51,14 +116,56 @@ export default function SignInPage() {
           {/* Header */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <LogIn size={32} className="text-purple-400" />
+              {isSignUp ? (
+                <UserPlus size={32} className="text-purple-400" />
+              ) : (
+                <LogIn size={32} className="text-purple-400" />
+              )}
               <h1 className="text-3xl font-bold text-white">
                 <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-300 bg-clip-text text-transparent">
-                  Admin
+                  {isSignUp ? 'Sign Up' : 'Sign In'}
                 </span>
               </h1>
             </div>
-            <p className="text-gray-300 text-sm">Sign in to access your dashboard</p>
+            <p className="text-gray-300 text-sm">
+              {isSignUp
+                ? 'Create an account to get started'
+                : 'Welcome back! Sign in to continue'}
+            </p>
+          </div>
+
+          {/* Toggle Tabs */}
+          <div className="flex mb-6 bg-white/5 rounded-lg p-1">
+            <button
+              type="button"
+              onClick={() => {
+                setIsSignUp(false);
+                setError('');
+                setSuccess('');
+              }}
+              className={`flex-1 py-2 rounded-md transition-colors text-sm font-medium ${
+                !isSignUp
+                  ? 'bg-purple-500/30 text-white'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              Sign In
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setIsSignUp(true);
+                setError('');
+                setSuccess('');
+              }}
+              className={`flex-1 py-2 rounded-md transition-colors text-sm font-medium ${
+                isSignUp
+                  ? 'bg-purple-500/30 text-white'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+            >
+              Sign Up
+            </button>
           </div>
 
           {/* Form */}
@@ -67,6 +174,29 @@ export default function SignInPage() {
             {error && (
               <div className="bg-red-500/20 border border-red-500/50 text-red-300 p-4 rounded-lg text-sm">
                 {error}
+              </div>
+            )}
+
+            {/* Success Message */}
+            {success && (
+              <div className="bg-green-500/20 border border-green-500/50 text-green-300 p-4 rounded-lg text-sm">
+                {success}
+              </div>
+            )}
+
+            {/* Name Input (Sign Up only) */}
+            {isSignUp && (
+              <div>
+                <label className="block text-sm font-medium text-white mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                  placeholder="Your name"
+                />
               </div>
             )}
 
@@ -95,38 +225,43 @@ export default function SignInPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={6}
                 className="w-full bg-white/5 border border-purple-500/30 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors"
-                placeholder="Enter your password"
+                placeholder={isSignUp ? 'Create a password (min 6 characters)' : 'Enter your password'}
               />
             </div>
 
-            {/* Submit Button - Cyan to purple gradient */}
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
               className="w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 bg-[length:200%_100%] animate-gradient-shift text-white font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {isLoading ? 'Signing in...' : 'Sign In'}
+              {isLoading ? (
+                isSignUp ? 'Creating account...' : 'Signing in...'
+              ) : (
+                isSignUp ? 'Create Account' : 'Sign In'
+              )}
             </button>
           </form>
 
-          {/* Demo Credentials */}
-          <div className="mt-8 pt-8 border-t border-purple-500/20">
-            <p className="text-xs text-gray-400 mb-4">Demo Credentials:</p>
-            <div className="space-y-2 text-xs text-gray-300">
-              <p><span className="text-cyan-400">Email:</span> zaynabrehann@gmail.com</p>
-              <p><span className="text-cyan-400">Email:</span> admin@techvix.org</p>
-              <p><span className="text-cyan-400">Password:</span> admin123</p>
-            </div>
+          {/* Admin Link */}
+          <div className="mt-6 pt-6 border-t border-purple-500/20 text-center">
+            <Link
+              href="/admin/login"
+              className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+            >
+              Admin Login
+            </Link>
           </div>
 
           {/* Back to Home */}
-          <div className="mt-6 text-center">
+          <div className="mt-4 text-center">
             <Link
               href="/"
               className="text-sm text-cyan-400 hover:text-purple-400 transition-colors"
             >
-              &#8592; Back to Home
+              &larr; Back to Home
             </Link>
           </div>
         </div>
