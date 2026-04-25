@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Code, Shield, Palette, Video, Zap, Brain, Cpu, MessageSquare, Share2, TrendingUp, DollarSign, PenTool, ArrowRight } from 'lucide-react';
+import { Code, Shield, Palette, Video, Zap, Brain, Cpu, MessageSquare, Share2, TrendingUp, DollarSign, PenTool, ArrowRight, Mail } from 'lucide-react';
 import { GlassmorphismCard } from '../glassmorphism-card';
 import { GradientText } from '../gradient-text';
 import Link from 'next/link';
@@ -222,6 +222,24 @@ export const services = [
       'Lead nurturing programs'
     ],
     technologies: ['HubSpot', 'Mailchimp', 'Google Analytics', 'Hotjar']
+  },
+  {
+    id: 'email-automation',
+    icon: <Mail size={40} className="text-cyan-400 group-hover:text-purple-400 transition-colors" />,
+    title: 'Email Automation',
+    description: 'Automated email marketing campaigns that nurture leads and drive conversions.',
+    fullDescription: 'Transform your email marketing with intelligent automation. We create sophisticated email workflows that engage subscribers, nurture leads, and convert customers on autopilot.',
+    features: [
+      'Email sequence automation',
+      'Lead nurturing workflows',
+      'Abandoned cart recovery',
+      'Welcome email series',
+      'Re-engagement campaigns',
+      'Newsletter management',
+      'A/B testing and optimization',
+      'Analytics and reporting'
+    ],
+    technologies: ['Mailchimp', 'Klaviyo', 'ConvertKit', 'ActiveCampaign', 'SendGrid', 'HubSpot']
   },
 ];
 

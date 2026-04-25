@@ -1,4 +1,4 @@
-// Portfolio data for all services
+// Portfolio data for all services with real projects
 
 export interface PortfolioProject {
   id: string;
@@ -24,31 +24,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'wd-1',
-        title: 'E-Commerce Platform',
-        description: 'Full-featured online store with payment integration, inventory management, and analytics dashboard.',
-        tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-        link: '#'
+        title: 'Vercel',
+        description: 'The platform for frontend developers, providing the speed and reliability innovators need to create at the moment of inspiration.',
+        tech: ['Next.js', 'React', 'TypeScript', 'Edge Functions'],
+        link: 'https://vercel.com'
       },
       {
         id: 'wd-2',
-        title: 'Healthcare Portal',
-        description: 'Patient management system with appointment booking, medical records, and telemedicine features.',
-        tech: ['React', 'Node.js', 'MongoDB', 'WebRTC'],
-        link: '#'
+        title: 'Linear',
+        description: 'Streamlined issue tracking and project management tool built for modern software teams.',
+        tech: ['React', 'GraphQL', 'PostgreSQL', 'TypeScript'],
+        link: 'https://linear.app'
       },
       {
         id: 'wd-3',
-        title: 'Real Estate Marketplace',
-        description: 'Property listing platform with virtual tours, mortgage calculator, and agent dashboard.',
-        tech: ['Next.js', 'Prisma', 'AWS S3', 'MapBox'],
-        link: '#'
+        title: 'Notion',
+        description: 'All-in-one workspace for notes, docs, wikis, and project management.',
+        tech: ['React', 'Node.js', 'PostgreSQL', 'Electron'],
+        link: 'https://notion.so'
       },
       {
         id: 'wd-4',
-        title: 'Learning Management System',
-        description: 'Online education platform with course creation, progress tracking, and certification system.',
-        tech: ['React', 'Django', 'PostgreSQL', 'Redis'],
-        link: '#'
+        title: 'Stripe Dashboard',
+        description: 'Comprehensive payment processing platform with beautiful analytics and developer tools.',
+        tech: ['React', 'Ruby on Rails', 'GraphQL', 'D3.js'],
+        link: 'https://stripe.com'
       }
     ]
   },
@@ -59,31 +59,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'ad-1',
-        title: 'Fitness Tracking App',
-        description: 'Comprehensive fitness app with workout plans, nutrition tracking, and social features.',
-        tech: ['React Native', 'Firebase', 'HealthKit', 'Google Fit'],
-        link: '#'
+        title: 'Strava',
+        description: 'Social fitness network for athletes to track workouts, compete, and connect.',
+        tech: ['React Native', 'Swift', 'Kotlin', 'GPS Integration'],
+        link: 'https://strava.com'
       },
       {
         id: 'ad-2',
-        title: 'Food Delivery App',
-        description: 'Restaurant ordering app with real-time tracking, payments, and loyalty rewards.',
-        tech: ['Flutter', 'Node.js', 'Stripe', 'Google Maps'],
-        link: '#'
+        title: 'Duolingo',
+        description: 'Gamified language learning app with AI-powered lessons and streak tracking.',
+        tech: ['React Native', 'Python', 'Machine Learning', 'Gamification'],
+        link: 'https://duolingo.com'
       },
       {
         id: 'ad-3',
-        title: 'Banking Mobile App',
-        description: 'Secure banking application with biometric auth, transfers, and expense analytics.',
-        tech: ['Swift', 'Kotlin', 'Plaid API', 'AWS'],
-        link: '#'
+        title: 'Revolut',
+        description: 'Digital banking app with currency exchange, crypto trading, and budgeting tools.',
+        tech: ['Flutter', 'Kotlin', 'Swift', 'Microservices'],
+        link: 'https://revolut.com'
       },
       {
         id: 'ad-4',
-        title: 'Event Management App',
-        description: 'Event discovery and ticketing app with QR check-in and social sharing.',
-        tech: ['React Native', 'GraphQL', 'Stripe', 'Push Notifications'],
-        link: '#'
+        title: 'Airbnb',
+        description: 'Travel and accommodation booking platform with immersive property listings.',
+        tech: ['React Native', 'GraphQL', 'Elasticsearch', 'Maps API'],
+        link: 'https://airbnb.com'
       }
     ]
   },
@@ -94,31 +94,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'cs-1',
-        title: 'Enterprise Security Audit',
-        description: 'Complete security assessment for a Fortune 500 company identifying and patching vulnerabilities.',
-        tech: ['Penetration Testing', 'SIEM', 'Compliance', 'Risk Assessment'],
-        link: '#'
+        title: 'CrowdStrike',
+        description: 'Cloud-native endpoint security platform providing threat intelligence and incident response.',
+        tech: ['Cloud Security', 'AI/ML', 'Threat Intel', 'EDR'],
+        link: 'https://crowdstrike.com'
       },
       {
         id: 'cs-2',
-        title: 'Secure Payment Gateway',
-        description: 'PCI-DSS compliant payment infrastructure with encryption and fraud detection.',
-        tech: ['Encryption', 'Tokenization', 'PCI-DSS', 'Fraud Detection'],
-        link: '#'
+        title: 'Cloudflare',
+        description: 'Web security and performance platform protecting millions of websites.',
+        tech: ['DDoS Protection', 'WAF', 'CDN', 'Zero Trust'],
+        link: 'https://cloudflare.com'
       },
       {
         id: 'cs-3',
-        title: 'Zero Trust Network',
-        description: 'Implementation of zero-trust architecture for remote workforce security.',
-        tech: ['Zero Trust', 'IAM', 'MFA', 'VPN'],
-        link: '#'
+        title: '1Password',
+        description: 'Enterprise password management with secure sharing and compliance features.',
+        tech: ['Zero-Knowledge', 'Encryption', 'SSO', 'Audit Logs'],
+        link: 'https://1password.com'
       },
       {
         id: 'cs-4',
-        title: 'Incident Response System',
-        description: 'Real-time threat detection and automated incident response platform.',
-        tech: ['SOAR', 'Threat Intel', 'EDR', 'Log Analysis'],
-        link: '#'
+        title: 'Snyk',
+        description: 'Developer security platform for finding and fixing vulnerabilities in code.',
+        tech: ['SAST', 'Container Security', 'CI/CD', 'Open Source'],
+        link: 'https://snyk.io'
       }
     ]
   },
@@ -129,31 +129,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'gd-1',
-        title: 'Tech Startup Branding',
-        description: 'Complete brand identity including logo, color palette, typography, and brand guidelines.',
-        tech: ['Adobe Illustrator', 'Figma', 'Brand Strategy', 'Typography'],
-        link: '#'
+        title: 'Dribbble',
+        description: 'Community for designers to share work, showcasing world-class graphic design.',
+        tech: ['Brand Design', 'UI/UX', 'Illustration', 'Typography'],
+        link: 'https://dribbble.com'
       },
       {
         id: 'gd-2',
-        title: 'Product Packaging Design',
-        description: 'Premium packaging design for a luxury cosmetics brand launching new product line.',
-        tech: ['Adobe Photoshop', 'Illustrator', '3D Mockups', 'Print Design'],
-        link: '#'
+        title: 'Behance',
+        description: 'Adobe creative portfolio platform featuring top design projects globally.',
+        tech: ['Portfolio Design', 'Branding', 'Motion Graphics', 'Print'],
+        link: 'https://behance.net'
       },
       {
         id: 'gd-3',
-        title: 'UI Design System',
-        description: 'Comprehensive design system with components, icons, and interaction patterns.',
-        tech: ['Figma', 'Design Tokens', 'Component Library', 'Accessibility'],
-        link: '#'
+        title: 'Awwwards',
+        description: 'Website awards recognizing the best web design, creativity and innovation.',
+        tech: ['Web Design', 'UI Design', 'Interactive', 'Animation'],
+        link: 'https://awwwards.com'
       },
       {
         id: 'gd-4',
-        title: 'Marketing Collateral',
-        description: 'Full suite of marketing materials including brochures, banners, and social media assets.',
-        tech: ['InDesign', 'Photoshop', 'Canva', 'Print & Digital'],
-        link: '#'
+        title: 'Canva Design School',
+        description: 'Educational design resources showcasing professional templates and tutorials.',
+        tech: ['Templates', 'Brand Kits', 'Social Media', 'Presentations'],
+        link: 'https://canva.com/designschool'
       }
     ]
   },
@@ -164,31 +164,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 've-1',
-        title: 'Corporate Brand Video',
-        description: 'Cinematic brand story video for a tech company showcasing their mission and values.',
-        tech: ['Premiere Pro', 'After Effects', 'Color Grading', '4K'],
-        link: '#'
+        title: 'Frame.io',
+        description: 'Video collaboration platform used by top studios for review and approval workflows.',
+        tech: ['Video Review', 'Collaboration', 'Cloud Rendering', 'Version Control'],
+        link: 'https://frame.io'
       },
       {
         id: 've-2',
-        title: 'YouTube Channel Package',
-        description: 'Full video production for tech review channel including intros, outros, and thumbnails.',
-        tech: ['DaVinci Resolve', 'Motion Graphics', 'Sound Design', 'Thumbnails'],
-        link: '#'
+        title: 'Vimeo',
+        description: 'Professional video hosting platform with advanced editing and distribution tools.',
+        tech: ['Video Hosting', 'Live Streaming', 'Analytics', 'Player Customization'],
+        link: 'https://vimeo.com'
       },
       {
         id: 've-3',
-        title: 'Product Launch Video',
-        description: 'High-impact product launch video with 3D animations and special effects.',
-        tech: ['After Effects', 'Cinema 4D', 'Sound Design', 'VFX'],
-        link: '#'
+        title: 'Loom',
+        description: 'Async video messaging platform for team communication and tutorials.',
+        tech: ['Screen Recording', 'Video Editing', 'Transcription', 'Analytics'],
+        link: 'https://loom.com'
       },
       {
         id: 've-4',
-        title: 'Social Media Content',
-        description: 'Series of engaging short-form videos optimized for TikTok, Reels, and Shorts.',
-        tech: ['Premiere Pro', 'CapCut', 'Trending Audio', 'Vertical Video'],
-        link: '#'
+        title: 'Descript',
+        description: 'AI-powered video editor that makes editing as easy as editing a document.',
+        tech: ['AI Editing', 'Transcription', 'Screen Recording', 'Podcasts'],
+        link: 'https://descript.com'
       }
     ]
   },
@@ -199,31 +199,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'ai-1',
-        title: 'Customer Service Bot',
-        description: 'AI-powered support chatbot handling 80% of customer queries automatically.',
-        tech: ['GPT-4', 'LangChain', 'Vector DB', 'Natural Language'],
-        link: '#'
+        title: 'Intercom Fin',
+        description: 'AI customer service bot resolving 50% of support queries automatically.',
+        tech: ['GPT-4', 'Knowledge Base', 'Multi-language', 'Human Handoff'],
+        link: 'https://intercom.com/fin'
       },
       {
         id: 'ai-2',
-        title: 'E-commerce Assistant',
-        description: 'Shopping assistant bot with product recommendations and order tracking.',
-        tech: ['OpenAI', 'RAG', 'Product Catalog', 'Multi-language'],
-        link: '#'
+        title: 'Drift',
+        description: 'Conversational marketing platform with AI-powered sales chatbots.',
+        tech: ['Conversational AI', 'Lead Qualification', 'CRM Integration', 'Video'],
+        link: 'https://drift.com'
       },
       {
         id: 'ai-3',
-        title: 'HR Onboarding Bot',
-        description: 'Internal chatbot streamlining employee onboarding and HR queries.',
-        tech: ['Claude AI', 'Knowledge Base', 'Slack Integration', 'Document QA'],
-        link: '#'
+        title: 'Ada',
+        description: 'AI-powered customer service automation platform for enterprise.',
+        tech: ['NLU', 'No-Code Builder', 'Analytics', 'Integrations'],
+        link: 'https://ada.cx'
       },
       {
         id: 'ai-4',
-        title: 'Healthcare Triage Bot',
-        description: 'Medical chatbot for initial patient assessment and appointment scheduling.',
-        tech: ['Medical NLP', 'HIPAA Compliant', 'EHR Integration', 'Symptom Analysis'],
-        link: '#'
+        title: 'Tidio',
+        description: 'Live chat and chatbot platform for e-commerce and small businesses.',
+        tech: ['Live Chat', 'AI Chatbot', 'Email Marketing', 'Shopify'],
+        link: 'https://tidio.com'
       }
     ]
   },
@@ -234,31 +234,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'cw-1',
-        title: 'SaaS Website Copy',
-        description: 'Complete website copy for B2B SaaS product resulting in 40% conversion increase.',
-        tech: ['SEO Copy', 'Landing Pages', 'CTA Optimization', 'A/B Testing'],
-        link: '#'
+        title: 'Apple',
+        description: 'Iconic product copywriting that defines simplicity and emotional connection.',
+        tech: ['Brand Voice', 'Product Copy', 'Minimalism', 'Storytelling'],
+        link: 'https://apple.com'
       },
       {
         id: 'cw-2',
-        title: 'Email Campaign Series',
-        description: 'Automated email sequence for e-commerce brand with 35% open rate.',
-        tech: ['Email Marketing', 'Storytelling', 'Segmentation', 'Automation'],
-        link: '#'
+        title: 'Mailchimp',
+        description: 'Friendly, conversational brand voice across all customer touchpoints.',
+        tech: ['Brand Guidelines', 'Email Copy', 'UX Writing', 'Humor'],
+        link: 'https://mailchimp.com'
       },
       {
         id: 'cw-3',
-        title: 'Blog Content Strategy',
-        description: 'Content marketing strategy with 50+ SEO-optimized articles driving organic traffic.',
-        tech: ['SEO Writing', 'Content Strategy', 'Keyword Research', 'Blog Posts'],
-        link: '#'
+        title: 'Basecamp',
+        description: 'Opinionated, personality-driven copy that builds trust and clarity.',
+        tech: ['SaaS Copy', 'Landing Pages', 'Blog Content', 'Email'],
+        link: 'https://basecamp.com'
       },
       {
         id: 'cw-4',
-        title: 'Product Descriptions',
-        description: 'Engaging product copy for 500+ e-commerce products boosting sales.',
-        tech: ['Product Copy', 'Features & Benefits', 'Brand Voice', 'Conversions'],
-        link: '#'
+        title: 'Slack',
+        description: 'Conversational, witty copy that makes enterprise software feel human.',
+        tech: ['Microcopy', 'Onboarding', 'Product Copy', 'Brand Voice'],
+        link: 'https://slack.com'
       }
     ]
   },
@@ -269,31 +269,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'seo-1',
-        title: 'E-commerce SEO Overhaul',
-        description: 'Complete SEO strategy resulting in 200% organic traffic increase in 6 months.',
-        tech: ['Technical SEO', 'On-Page', 'Link Building', 'Analytics'],
-        link: '#'
+        title: 'Ahrefs',
+        description: 'Industry-leading SEO tools with comprehensive backlink and keyword analysis.',
+        tech: ['Backlink Analysis', 'Keyword Research', 'Site Audit', 'Rank Tracking'],
+        link: 'https://ahrefs.com'
       },
       {
         id: 'seo-2',
-        title: 'Local Business SEO',
-        description: 'Local SEO campaign achieving top 3 rankings for 50+ location-based keywords.',
-        tech: ['Local SEO', 'Google Business', 'Citations', 'Reviews'],
-        link: '#'
+        title: 'Semrush',
+        description: 'All-in-one marketing toolkit for SEO, content, and competitive research.',
+        tech: ['Competitor Analysis', 'Content Tools', 'PPC', 'Social Media'],
+        link: 'https://semrush.com'
       },
       {
         id: 'seo-3',
-        title: 'Technical SEO Audit',
-        description: 'Comprehensive technical audit improving site speed and Core Web Vitals.',
-        tech: ['Core Web Vitals', 'Site Speed', 'Schema Markup', 'Crawlability'],
-        link: '#'
+        title: 'Moz',
+        description: 'SEO software and resources trusted by marketers worldwide.',
+        tech: ['Domain Authority', 'Link Building', 'Local SEO', 'SERP Analysis'],
+        link: 'https://moz.com'
       },
       {
         id: 'seo-4',
-        title: 'Content SEO Strategy',
-        description: 'Keyword-driven content strategy ranking for 500+ keywords in competitive niche.',
-        tech: ['Keyword Research', 'Content Clusters', 'SERP Analysis', 'Topical Authority'],
-        link: '#'
+        title: 'Surfer SEO',
+        description: 'AI-powered content optimization for higher search rankings.',
+        tech: ['Content Editor', 'SERP Analyzer', 'NLP', 'Outline Builder'],
+        link: 'https://surferseo.com'
       }
     ]
   },
@@ -304,31 +304,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'sm-1',
-        title: 'Fashion Brand Growth',
-        description: 'Instagram strategy growing following from 5K to 100K in 8 months.',
-        tech: ['Instagram', 'Content Calendar', 'Reels', 'Influencer Collab'],
-        link: '#'
+        title: 'Buffer',
+        description: 'Social media management platform for scheduling and analytics.',
+        tech: ['Scheduling', 'Analytics', 'Engagement', 'Team Collaboration'],
+        link: 'https://buffer.com'
       },
       {
         id: 'sm-2',
-        title: 'B2B LinkedIn Strategy',
-        description: 'LinkedIn thought leadership campaign generating 500+ qualified leads.',
-        tech: ['LinkedIn', 'Thought Leadership', 'Employee Advocacy', 'Lead Gen'],
-        link: '#'
+        title: 'Hootsuite',
+        description: 'Enterprise social media management with advanced analytics and monitoring.',
+        tech: ['Multi-Platform', 'Social Listening', 'Ads Management', 'Reports'],
+        link: 'https://hootsuite.com'
       },
       {
         id: 'sm-3',
-        title: 'Viral TikTok Campaign',
-        description: 'TikTok marketing campaign achieving 10M+ views and brand virality.',
-        tech: ['TikTok', 'Trend Jacking', 'UGC', 'Hashtag Strategy'],
-        link: '#'
+        title: 'Later',
+        description: 'Visual social media planner with Instagram-first scheduling features.',
+        tech: ['Visual Planning', 'Link in Bio', 'Instagram', 'UGC'],
+        link: 'https://later.com'
       },
       {
         id: 'sm-4',
-        title: 'Community Management',
-        description: 'Multi-platform community management with 95% response rate.',
-        tech: ['Community Building', 'Crisis Management', 'Engagement', 'Analytics'],
-        link: '#'
+        title: 'Sprout Social',
+        description: 'Social media management and intelligence platform for enterprises.',
+        tech: ['Social CRM', 'Listening', 'Publishing', 'Advocacy'],
+        link: 'https://sproutsocial.com'
       }
     ]
   },
@@ -339,31 +339,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'am-1',
-        title: 'Google Ads Campaign',
-        description: 'PPC campaign achieving 400% ROAS for e-commerce client.',
-        tech: ['Google Ads', 'Shopping Ads', 'Remarketing', 'Conversion Tracking'],
-        link: '#'
+        title: 'Google Ads',
+        description: 'The world largest advertising platform powering search and display campaigns.',
+        tech: ['Search Ads', 'Display', 'YouTube', 'Performance Max'],
+        link: 'https://ads.google.com'
       },
       {
         id: 'am-2',
-        title: 'Facebook Ads Strategy',
-        description: 'Social ads campaign reducing CPA by 60% through audience optimization.',
-        tech: ['Meta Ads', 'Lookalike Audiences', 'Creative Testing', 'Pixel Setup'],
-        link: '#'
+        title: 'Meta Ads Manager',
+        description: 'Advertising platform for Facebook, Instagram, and Messenger campaigns.',
+        tech: ['Social Ads', 'Audience Targeting', 'Creative Testing', 'Pixel'],
+        link: 'https://business.facebook.com'
       },
       {
         id: 'am-3',
-        title: 'App Install Campaign',
-        description: 'Mobile app install campaign achieving 100K downloads at $0.50 CPI.',
-        tech: ['App Campaigns', 'ASO', 'Attribution', 'In-App Events'],
-        link: '#'
+        title: 'LinkedIn Campaign Manager',
+        description: 'B2B advertising platform for reaching professional audiences.',
+        tech: ['B2B Ads', 'Account Based', 'Lead Gen', 'Sponsored Content'],
+        link: 'https://business.linkedin.com/marketing-solutions'
       },
       {
         id: 'am-4',
-        title: 'B2B LinkedIn Ads',
-        description: 'LinkedIn advertising campaign generating enterprise leads at scale.',
-        tech: ['LinkedIn Ads', 'ABM', 'Lead Gen Forms', 'Sponsored Content'],
-        link: '#'
+        title: 'TikTok Ads Manager',
+        description: 'Advertising platform for reaching Gen Z and millennial audiences.',
+        tech: ['Video Ads', 'Spark Ads', 'Creator Marketplace', 'Trends'],
+        link: 'https://ads.tiktok.com'
       }
     ]
   },
@@ -374,31 +374,31 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'saas-1',
-        title: 'Project Management Tool',
-        description: 'Team collaboration platform with real-time sync, Kanban boards, and integrations.',
-        tech: ['Next.js', 'PostgreSQL', 'WebSockets', 'Stripe'],
-        link: '#'
+        title: 'Slack',
+        description: 'Team collaboration platform with channels, integrations, and workflows.',
+        tech: ['React', 'Node.js', 'Electron', 'WebSockets'],
+        link: 'https://slack.com'
       },
       {
         id: 'saas-2',
-        title: 'CRM Platform',
-        description: 'Customer relationship management system with pipeline tracking and automation.',
-        tech: ['React', 'Node.js', 'MongoDB', 'Email Integration'],
-        link: '#'
+        title: 'Figma',
+        description: 'Collaborative design tool running entirely in the browser.',
+        tech: ['WebGL', 'CRDT', 'TypeScript', 'C++ WASM'],
+        link: 'https://figma.com'
       },
       {
         id: 'saas-3',
-        title: 'Analytics Dashboard',
-        description: 'Business intelligence platform with custom reports and data visualization.',
-        tech: ['Vue.js', 'Python', 'Data Warehouse', 'Charts'],
-        link: '#'
+        title: 'Calendly',
+        description: 'Scheduling automation platform eliminating back-and-forth emails.',
+        tech: ['React', 'Ruby on Rails', 'PostgreSQL', 'Calendar APIs'],
+        link: 'https://calendly.com'
       },
       {
         id: 'saas-4',
-        title: 'HR Management System',
-        description: 'Complete HR solution with payroll, leave management, and performance tracking.',
-        tech: ['React', 'Django', 'PostgreSQL', 'PDF Generation'],
-        link: '#'
+        title: 'Loom',
+        description: 'Async video messaging platform for workplace communication.',
+        tech: ['React', 'WebRTC', 'AWS', 'Video Processing'],
+        link: 'https://loom.com'
       }
     ]
   },
@@ -409,31 +409,66 @@ export const portfolioData: Record<string, ServicePortfolio> = {
     projects: [
       {
         id: 'dm-1',
-        title: 'Startup Launch Campaign',
-        description: 'Full-funnel marketing campaign for tech startup launch achieving 10K signups.',
-        tech: ['Multi-Channel', 'Content Marketing', 'PR', 'Email'],
-        link: '#'
+        title: 'HubSpot',
+        description: 'All-in-one marketing, sales, and service platform for growing businesses.',
+        tech: ['CRM', 'Marketing Automation', 'Content', 'Analytics'],
+        link: 'https://hubspot.com'
       },
       {
         id: 'dm-2',
-        title: 'Brand Awareness Campaign',
-        description: 'Integrated campaign increasing brand awareness by 150% in target market.',
-        tech: ['Brand Strategy', 'Display Ads', 'Influencer', 'Events'],
-        link: '#'
+        title: 'Marketo',
+        description: 'Enterprise marketing automation platform for B2B companies.',
+        tech: ['Lead Management', 'Email Marketing', 'ABM', 'Revenue Attribution'],
+        link: 'https://marketo.com'
       },
       {
         id: 'dm-3',
-        title: 'Lead Generation System',
-        description: 'Automated lead generation funnel producing 500+ qualified leads monthly.',
-        tech: ['Landing Pages', 'Email Nurture', 'Webinars', 'CRM'],
-        link: '#'
+        title: 'Unbounce',
+        description: 'Landing page builder and conversion optimization platform.',
+        tech: ['Landing Pages', 'A/B Testing', 'Smart Traffic', 'Popups'],
+        link: 'https://unbounce.com'
       },
       {
         id: 'dm-4',
-        title: 'E-commerce Growth',
-        description: 'Digital strategy tripling online revenue through omnichannel approach.',
-        tech: ['Omnichannel', 'Remarketing', 'Loyalty Program', 'Analytics'],
-        link: '#'
+        title: 'Hotjar',
+        description: 'Behavior analytics platform understanding how users interact with sites.',
+        tech: ['Heatmaps', 'Session Recording', 'Surveys', 'Funnels'],
+        link: 'https://hotjar.com'
+      }
+    ]
+  },
+  'email-automation': {
+    serviceId: 'email-automation',
+    serviceName: 'Email Automation',
+    description: 'Automated email marketing campaigns that nurture leads and drive conversions.',
+    projects: [
+      {
+        id: 'ea-1',
+        title: 'Klaviyo',
+        description: 'E-commerce email and SMS marketing automation platform with powerful segmentation.',
+        tech: ['Email Flows', 'SMS', 'Segmentation', 'Shopify Integration'],
+        link: 'https://klaviyo.com'
+      },
+      {
+        id: 'ea-2',
+        title: 'ConvertKit',
+        description: 'Creator-focused email marketing platform with visual automation builder.',
+        tech: ['Visual Automations', 'Landing Pages', 'Creator Network', 'Tagging'],
+        link: 'https://convertkit.com'
+      },
+      {
+        id: 'ea-3',
+        title: 'ActiveCampaign',
+        description: 'Customer experience automation platform combining email, automation, and CRM.',
+        tech: ['Email Automation', 'CRM', 'Machine Learning', 'Predictive Sending'],
+        link: 'https://activecampaign.com'
+      },
+      {
+        id: 'ea-4',
+        title: 'Drip',
+        description: 'E-commerce CRM and email marketing platform for personalized campaigns.',
+        tech: ['E-commerce CRM', 'Revenue Attribution', 'Workflows', 'Personalization'],
+        link: 'https://drip.com'
       }
     ]
   }
