@@ -1,8 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
-const SUPER_ADMIN_EMAIL = 'zaynabrehan@gmail.com'
-
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
@@ -31,53 +29,26 @@ export async function updateSession(request: NextRequest) {
     },
   )
 
+  // Refresh session
   const {
     data: { user },
   } = await supabase.auth.getUser()
 
   const pathname = request.nextUrl.pathname
 
-  // Protect super-admin routes
-  if (pathname.startsWith('/super-admin')) {
+  // Protect admin dashboard routes (but not login)
+  if (pathname.startsWith('/admin/dashboard')) {
     if (!user) {
       const url = request.nextUrl.clone()
-      url.pathname = '/login'
-      url.searchParams.set('error', 'Please login to continue')
-      return NextResponse.redirect(url)
-    }
-    if (user.email !== SUPER_ADMIN_EMAIL) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/login'
-      url.searchParams.set('error', 'Unauthorized access')
+      url.pathname = '/admin/login'
       return NextResponse.redirect(url)
     }
   }
 
-  // Protect admin routes
-  if (pathname.startsWith('/admin')) {
-    if (!user) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/login'
-      url.searchParams.set('error', 'Please login to continue')
-      return NextResponse.redirect(url)
-    }
-    
-    // Check if user is super admin (redirect to super-admin dashboard)
-    if (user.email === SUPER_ADMIN_EMAIL) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/super-admin'
-      return NextResponse.redirect(url)
-    }
-  }
-
-  // Redirect logged-in users away from login page
-  if (pathname === '/login' && user) {
+  // Redirect logged-in users away from admin login page
+  if (pathname === '/admin/login' && user) {
     const url = request.nextUrl.clone()
-    if (user.email === SUPER_ADMIN_EMAIL) {
-      url.pathname = '/super-admin'
-    } else {
-      url.pathname = '/admin'
-    }
+    url.pathname = '/admin/dashboard'
     return NextResponse.redirect(url)
   }
 
