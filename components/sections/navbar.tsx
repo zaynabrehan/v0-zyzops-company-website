@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Code, Shield, Palette, Video, Zap, Brain, Cpu, MessageSquare, Share2, TrendingUp, DollarSign, PenTool } from 'lucide-react';
+import { Menu, X, ChevronDown, Code, Shield, Palette, Video, Zap, Brain, Cpu, MessageSquare, Share2, TrendingUp, DollarSign, PenTool, Mail, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -38,6 +38,7 @@ const serviceCategories = [
       { id: 'social-media', label: 'Social Media', icon: Share2, description: 'Social marketing' },
       { id: 'ads-management', label: 'Ads Management', icon: TrendingUp, description: 'PPC campaigns' },
       { id: 'digital-marketing', label: 'Digital Marketing', icon: PenTool, description: 'Full marketing' },
+      { id: 'email-automation', label: 'Email Automation', icon: Mail, description: 'Automated campaigns' },
     ]
   }
 ];
@@ -45,6 +46,7 @@ const serviceCategories = [
 const navLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'About', href: '/#about' },
+  { label: 'Team', href: '/team' },
   { label: 'Contact', href: '/#contact' },
 ];
 

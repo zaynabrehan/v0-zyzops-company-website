@@ -109,6 +109,8 @@ export default function ServicePortfolioPage() {
                   {/* View Project Link */}
                   <a
                     href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-cyan-400 hover:text-purple-400 transition-all duration-300 group-hover:translate-x-1"
                   >
                     View Project <ExternalLink size={16} />
